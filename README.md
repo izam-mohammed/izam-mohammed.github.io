@@ -19,18 +19,19 @@ About
 ## Get Started 🌱
 
 1. Clone this repository
-  ```
-  git clone https://github.com/izam-mohammed/izam-mohammed.github.io.git
-  cd izam-mohammed.gtihub.io
-  ```
-   
+
+```
+git clone https://github.com/izam-mohammed/izam-mohammed.github.io.git
+cd izam-mohammed.gtihub.io
+```
+
 3. Open `index.html` to view the website locally.
 
 ## View ✌✨
 
 Visit [izam-developer.github.io](https://izam-developer.github.io/) to view the live version of my website.
 
-## Features 
+## Features
 
 - Interactive and responsive design
 - Links to my social media profiles
@@ -46,4 +47,5 @@ This repository follows a consistent code formatting approach to enhance readabi
 HTML files in this repository are formatted using [Prettier](https://prettier.io/). Prettier is a code formatter that supports multiple languages, including HTML.
 
 ## License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
