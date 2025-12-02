@@ -77,7 +77,7 @@
             <a href="https://motherfuckingwebsite.com/">this absolute legend</a>
             :)</small>
         <br />
-        <small style="color: #888">created: 29 nov 2025</small>
+        <small style="color: #888">created on 29th nov 2025, loaded in <span id="loadtime"></span>s</small>
     </p>
 
     <script>
@@ -99,6 +99,9 @@
 
         // mass = E / c^2 old
         document.getElementById("daysold").textContent = Math.floor((Date.now() - 1127865600000) / 864e5);
+
+        // load time
+        document.getElementById("loadtime").textContent = (performance.now() / 1000).toFixed(4);
     </script>
 </body>
 
