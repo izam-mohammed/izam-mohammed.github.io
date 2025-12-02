@@ -22,17 +22,18 @@
     <p>no fancy startup. no fundraising. no viral tweets. no ted talks.</p>
     <ul>
         <li>
-            i finished schooling and somehow ended up at
+            finished schooling and somehow ended up at
             <a href="https://www.ampcome.com/">ampcome</a>.
         </li>
         <li>
-            i love to build llm stuff. occasionally get stuck on some stupid
+            love to build llm stuff. occasionally get stuck on some stupid
             <a href="https://www.google.com/search?q=RuntimeError+CUDA+out+of+memory">pytorch error</a>.
         </li>
         <li>
-            i read <a href="https://arxiv.org/list/cs.AI/recent">ai papers</a>. the
+            read <a href="https://arxiv.org/list/cs.AI/recent">ai papers</a>. the
             ones with code.
         </li>
+        <li>am <span id="daysold"></span> days old btw.</li>
     </ul>
     <h2>projects</h2>
     <ul>
@@ -95,6 +96,9 @@
                     (c <= "Z" ? 65 : 97)
                 )
             );
+
+        // mass = E / c^2 old
+        document.getElementById("daysold").textContent = Math.floor((Date.now() - 1127865600000) / 864e5);
     </script>
 </body>
 
