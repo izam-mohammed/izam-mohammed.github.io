@@ -1,0 +1,25 @@
+# stuff that shouldn't exist in this repo anyway
+node_modules/
+package.json
+package-lock.json
+
+# am not usin' macos but just in case
+.DS_Store
+
+# editor nonsense
+.vscode/
+.idea/
+*.swp
+
+# if you see these files somethin' went terribly wrong
+dist/
+build/
+*.min.js
+*.min.css
+
+# secrets (am not that dumb)
+.env
+*.pem
+
+# why would there be logs
+*.log
