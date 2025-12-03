@@ -1,6 +1,6 @@
 # izam-mohammed.github.io
 
-my personal website. it's one html file. that's it.
+my personal website. nothin' fancy.
 
 ## runnin' locally
 

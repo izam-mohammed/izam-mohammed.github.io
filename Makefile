@@ -3,7 +3,7 @@
 .PHONY: build dev deploy clean help cry docs
 
 build:
-	@echo "there's nothin' to build. it's one html file."
+	@echo "there's nothin' to build. it's just html."
 
 dev:
 	@echo "openin' index.html in browser..."

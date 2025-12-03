@@ -4,11 +4,11 @@ yo claude, this file is for you. try not to mess things up okay?
 
 ## what even is this
 
-this is izam's personal website. it's literally just one html file. yes, one. don't go creatin' a bunch of react components or suggestin' we add typescript. am beggin' you.
+this is izam's personal website. it's simple. don't go creatin' a bunch of react components or suggestin' we add typescript. am beggin' you.
 
 ## architecture (if you can even call it that)
 
-- `index.html` - that's it. that's the whole website. html + css + js all shoved in one file like a burrito
+- `index.html` - the main page. html + css + js shoved together like a burrito
 - no frameworks. no webpack. no npm. no node_modules folder eatin' up 500mb of disk space
 - deploys to github pages when you push to `main`. github actions handles it, not you
 
@@ -30,7 +30,7 @@ don't you dare suggest settin' up a dev server or hot reloadin'. we don't do tha
 
 - add a css framework
 - suggest "maybe we could use tailwind here"
-- create multiple files for "better organization"
+- over-engineer things for "better organization"
 - add comments explainin' what `<h1>` does
 
 ## final words
