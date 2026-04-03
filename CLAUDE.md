@@ -25,6 +25,8 @@ don't you dare suggest settin' up a dev server or hot reloadin'. we don't do tha
 - no custom css. just vibin' with default browser styles like it's 1999
 - the email is obfuscated with some rot13 nonsense so spambots don't find it. don't "fix" it thinkin' it's broken
 - if you see inline styles, leave them alone. am not refactorin' 3 lines of css into a separate file
+- write like i talk. use slang. droppin' the g from -ing words (writin', buildin', doin'). use gonna, wanna, 'em, ain't, etc. lowercase everything. keep it casual like you're textin' a friend not writin' a resume
+- be funny. self-deprecatin' humor, sarcasm, absurd observations - that's the vibe. if a sentence can be boring or funny, pick funny. don't force it tho, cringe humor is worse than no humor. think "dev who doesn't take himself seriously" not "corporate blog tryin' to be relatable"
 
 ## things you should never do
 
@@ -32,6 +34,20 @@ don't you dare suggest settin' up a dev server or hot reloadin'. we don't do tha
 - suggest "maybe we could use tailwind here"
 - over-engineer things for "better organization"
 - add comments explainin' what `<h1>` does
+
+## file map
+
+- `index.html` - main page
+- `notes/index.html` - notes listin' page
+- `notes/before-i-die/index.html` - bucket list
+- `notes/3am-shower-thoughts/index.html` - software ideas
+- `notes/will-i-ever-learn-all-this/index.html` - things to learn as swe
+- `notes/brain-not-brainin/index.html` - cognitive biases
+- `notes/blogs-worth-stalkin/index.html` - blogs worth readin'
+- `notes/link-hoarding-problem/index.html` - collection of links
+- `notes/where-i-doomscroll/index.html` - tech monitor sites
+- `notes/timewastin-with-ai/index.html` - ai chat tools
+- `notes/movies-that-hit-different/index.html` - movies & series
 
 ## final words
 
