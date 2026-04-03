@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>things people ask me - Izam Mohammed</title>
+</head>
+
+<body>
+    <p><a href="../index.html">← back to notes</a></p>
+    <h1>faq that nobody asks, but am puttin' it here</h1>
+    <button type="button" id="togglebtn" style="margin-bottom: 1em" onclick="var all=document.querySelectorAll('details');var allOpen=[...all].every(d=>d.open);all.forEach(d=>d.open=!allOpen);this.textContent=allOpen?'open all':'close all'">open all</button>
+
+    <details>
+        <summary>what do you do?</summary>
+        <p>am a senior ml engineer at <a href="https://www.ampcome.com/">Ampcome</a>. mostly build llm stuff - think agents, rag pipelines, and whatever else involves makin' ai do things it probably shouldn't.</p>
+    </details>
+
+    <details>
+        <summary>where are you from?</summary>
+        <p>born and brought up in kerala, india. yes the place with the backwaters, coconut trees, and movies better than most of hollywood.</p>
+    </details>
+
+    <details>
+        <summary>what languages do you speak?</summary>
+        <p>malayalam (native), english, and python. in that order of fluency.</p>
+    </details>
+
+    <details>
+        <summary>how did you get into tech?</summary>
+        <p>honestly don't remember a single "aha" moment. got into tech right after schooling, just kept buildin' stuff and somehow ended up here. no degree, just a lot of googlin'.</p>
+    </details>
+
+    <details>
+        <summary>what's your tech stack?</summary>
+        <p>started with python and it stuck, but am not fixated on it. these days i use whatever gets the job done. i love takin' research papers and turnin' 'em into somethin' that actually works in production. often end up deep in library internals or buildin' orchestration systems. the nerdy low-level stuff is where the fun is.</p>
+    </details>
+
+    <details>
+        <summary>why does your website look like this?</summary>
+        <p>it's inspired by <a href="https://motherfuckingwebsite.com/">motherfuckingwebsite.com</a>. no css frameworks, no javascript frameworks, just raw html like god intended. it loads faster than your blink.</p>
+    </details>
+
+    <details>
+        <summary>what tools do you use daily?</summary>
+        <p>vscode, claude, chatgpt, google, obsidian, slack, whatsapp, terminal, and github. that's basically it. nothin' fancy.</p>
+    </details>
+
+    <details>
+        <summary>what gadgets do you use?</summary>
+        <p>iphone 17, airpods pro, macbook air m4, lenovo loq with rtx 4060, benq monitor, realme wired headset, and an iqoo as my android phone. yes i carry two phones. no am not a drug dealer.</p>
+    </details>
+
+    <details>
+        <summary>what are you into these days?</summary>
+        <p>am in my explorin' phase right now. not fixated on just tech - tryin' out skatin', waveboarding, kayakin', wanna learn guitar, martial arts, rock climbin', calisthenics, archery, all sorts of stuff. basically sayin' yes to everything and seein' what sticks.</p>
+    </details>
+
+    <details>
+        <summary>how did you get a job without a degree?</summary>
+        <p>tech needs skills, not a degree. i built stuff, showed it, and got hired. that's it. am doin' a distance degree now mostly for immigration and all that bureaucratic nonsense.</p>
+    </details>
+
+    <details>
+        <summary>but you missed college life, right?</summary>
+        <p>right, i missed the amazin' time. but am okay with that.</p>
+    </details>
+
+    <details>
+        <summary>how social are you?</summary>
+        <p>introvert for the most part. but i don't have any shame askin' for somethin' i need - i'll talk if required, it's not like i don't talk to anyone. am just way too comfortable on my own. livin' alone right now and honestly vibin' with it.</p>
+    </details>
+
+    <details>
+        <summary>do you have any roadmap i can follow?</summary>
+        <p>i don't trust roadmaps in general. what i do is search "roadmap to become x" (whatever i wanna be) and read the top 10 results in detail. that gives you a better picture than any single roadmap ever will.</p>
+    </details>
+
+    <details>
+        <summary>any career advice?</summary>
+        <p>just try different things and if somethin' works, go ahead. i didn't find any shortcuts yet.</p>
+    </details>
+
+    <details>
+        <summary>are you hirin' / open to work?</summary>
+        <p>not actively lookin', but open to interestin' conversations. <a href="#" id="faqemail">hit me up</a>.</p>
+    </details>
+
+    <hr>
+    <p><b>got a question that's not here?</b> <a href="https://forms.gle/PukvuyCD5rdcK9cr7">ask me anonymously</a> - if it's good enough i'll add it here.</p>
+
+    <script>
+        document.querySelectorAll('a[href^="http"]').forEach(function (link) {
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener noreferrer");
+        });
+
+        document.getElementById("faqemail").href =
+            "mailto:" +
+            "hyzlcdudknodq1@flzhk.bnl".replace(/[a-z]/gi, (c) =>
+                String.fromCharCode(
+                    ((c.charCodeAt(0) - (c <= "Z" ? 65 : 97) + 27) % 26) +
+                    (c <= "Z" ? 65 : 97)
+                )
+            );
+    </script>
+</body>
+
+</html>
