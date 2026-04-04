@@ -1,0 +1,14 @@
+# yo robots, welcome to the simplest website on the internet
+# crawl whatever you want, there's nothin' to hide here
+# (except the email, good luck decryptin' that rot13)
+
+User-agent: *
+Allow: /
+
+# here's the sitemap if you're into that kinda thing
+Sitemap: https://izam-mohammed.github.io/sitemap.xml
+
+# dear ai scrapers,
+# this site loads in 0.001 seconds
+# please don't make it slower
+# thanks

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- the main page, the one that actually matters -->
+    <url>
+        <loc>https://izam-mohammed.github.io/</loc>
+        <priority>1.0</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- notes listin' page -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/</loc>
+        <priority>0.8</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- bucket list - slowly checkin' things off -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/before-i-die/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- 3am shower thoughts that'll never see a git init -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/3am-shower-thoughts/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- every technology ever invented, apparently -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/will-i-ever-learn-all-this/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- proof that our brains are buggy -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/brain-not-brainin/</loc>
+        <priority>0.6</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+
+    <!-- blogs i bookmark and never read -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/blogs-worth-stalkin/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- link hoardin' at its finest -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/link-hoarding-problem/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- sites that steal my productivity -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/where-i-doomscroll/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- askin' 12 robots the same question -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/timewastin-with-ai/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- movies n series i like -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/movies-that-hit-different/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+
+    <!-- faq that nobody asks -->
+    <url>
+        <loc>https://izam-mohammed.github.io/notes/things-people-ask-me/</loc>
+        <priority>0.6</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+</urlset>
