@@ -18,7 +18,7 @@
         "pbbxva' oernxsnfg be oheava' vg. gurer'f ab va orgjrra.",
         "sbbqva'. qba'g qvfgheo. guvf vf fnperq gvzr.",
         "jbexva'. be ng yrnfg tbg gur yncgbc bcra.",
-        "ivor pbqva' — jurer gur NV jevgrf naq v gnxr perqvg.",
+        "ivor pbqva' - jurer gur NV jevgrf naq v gnxr perqvg.",
         "qrrc va n enoovg ubyr gung fgnegrq jvgu bar pynhqr zrffntr.",
         "yhapu oernx. gur bayl zrrgva' v npghnyyl rawbl.",
         "sbbqva' be va n sbbq pbzn. obgu rdhnyyl cebqhpgvir.",

@@ -1,43 +1,45 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# deploys a bunch of html files to the internet
+# yes this needs a whole yaml file. welcome to modern software engineerin'.
+name: ship it before i change my mind
 
 on:
-  # Runs on pushes targeting the default branch
+  # every push to main = instant regret
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # panic button
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# givin' github just enough power to do its job
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# one deployment at a time. we're not animals.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
+  # the entire "build pipeline" for a static site lmao
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: grab the code
         uses: actions/checkout@v4
-      - name: Setup Pages
+
+      - name: pretend we have a build step
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+
+      - name: zip it up like it's somethin' important
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: '.'
-      - name: Deploy to GitHub Pages
+
+      - name: yeet it to the internet
         id: deployment
         uses: actions/deploy-pages@v4

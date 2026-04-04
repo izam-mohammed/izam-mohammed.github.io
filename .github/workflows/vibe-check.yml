@@ -1,0 +1,59 @@
+# bro i got you somethin'
+# this workflow does absolutely nothin' useful. enjoy.
+name: vibe check
+
+on:
+  # every push deserves a vibe check
+  push:
+    branches: ["main"]
+
+  # for when you need a manual vibe check at 3am
+  workflow_dispatch:
+
+jobs:
+  check-the-vibes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: wakin' up
+        run: echo "yo, another push? let's see what we're dealin' with..."
+
+      - name: grab the code
+        uses: actions/checkout@v4
+
+      - name: check if anyone added tailwind
+        run: |
+          if grep -r "tailwind" --include="*.html" --include="*.css" --include="*.js" . 2>/dev/null; then
+            echo "🚨 TAILWIND DETECTED. WHO DID THIS. CALLIN' THE POLICE."
+            exit 1
+          else
+            echo "✅ no tailwind. faith in humanity restored."
+          fi
+
+      - name: check if anyone added node_modules
+        run: |
+          if [ -d "node_modules" ]; then
+            echo "🚨 node_modules found. this repo was supposed to be pure. who hurt you?"
+            exit 1
+          else
+            echo "✅ no node_modules. this website still loads faster than your blinker fluid."
+          fi
+
+      - name: count the files
+        run: |
+          count=$(find . -name "*.html" | wc -l)
+          echo "📄 total html files: $count"
+          echo "that's $count more than most developers' personal sites lol"
+
+      - name: measure the vibe
+        run: |
+          size=$(du -sh . | cut -f1)
+          echo "📦 total repo size: $size"
+          echo "still smaller than a single node_modules folder. we winnin'."
+
+      - name: final verdict
+        run: |
+          echo "========================================="
+          echo "  VIBE CHECK: PASSED ✅"
+          echo "  no frameworks. no nonsense. just vibes."
+          echo "  go touch grass now."
+          echo "========================================="

@@ -72,8 +72,8 @@ document.getElementById("spylink").addEventListener("click", function (e) {
             var pct = Math.round(b.level * 100);
             var msg = pct + "%";
             if (b.charging) msg += " (chargin')";
-            if (pct < 20) msg += " — go charge your device before it dies on my website";
-            else if (pct > 90) msg += " — nice, fully juiced";
+            if (pct < 20) msg += " - go charge your device before it dies on my website";
+            else if (pct > 90) msg += " - nice, fully juiced";
             document.getElementById("batteryinfo").textContent = msg;
         });
     }
