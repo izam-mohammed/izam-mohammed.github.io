@@ -48,6 +48,7 @@ don't you dare suggest settin' up a dev server or hot reloadin'. we don't do tha
 - `notes/where-i-doomscroll/index.html` - tech monitor sites
 - `notes/timewastin-with-ai/index.html` - ai chat tools
 - `notes/movies-that-hit-different/index.html` - movies & series
+- `notes/things-life-taught-me/index.html` - life lessons / ideologies
 - `notes/things-people-ask-me/index.html` - faq / things people ask me
 
 ## final words

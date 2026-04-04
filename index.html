@@ -69,7 +69,7 @@
             <a href="https://www.instagram.com/izam.c/">Insta</a>
             - proof that i go outside sometimes
         </li>
-        <li><a href="#" id="iemail">Email</a> - i might reply</li>
+        <li><a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">Email</a> - i might reply</li>
     </ul>
     <p>
         <a href="https://forms.gle/PukvuyCD5rdcK9cr7">Anonymous feedback</a>
@@ -94,16 +94,6 @@
 
     <script src="/assets/js/common.js"></script>
     <script>
-        // attempt hidin from spambots :)
-        document.getElementById("iemail").href =
-            "mailto:" +
-            "hyzlcdudknodq1@flzhk.bnl".replace(/[a-z]/gi, (c) =>
-                String.fromCharCode(
-                    ((c.charCodeAt(0) - (c <= "Z" ? 65 : 97) + 27) % 26) +
-                    (c <= "Z" ? 65 : 97)
-                )
-            );
-
         // mass = E / c^2 old
         document.getElementById("daysold").textContent = Math.floor((Date.now() - 1127865600000) / 864e5);
 
