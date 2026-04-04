@@ -22,11 +22,12 @@ jobs:
 
       - name: check if anyone added tailwind
         run: |
-          if grep -r "tailwind" --include="*.html" --include="*.css" --include="*.js" . 2>/dev/null; then
+          if grep -r "tailwind" --include="*.css" --include="*.js" . 2>/dev/null || grep -r "cdn.tailwindcss\|tailwindcss.com" --include="*.html" . 2>/dev/null; then
             echo "🚨 TAILWIND DETECTED. WHO DID THIS. CALLIN' THE POLICE."
             exit 1
           else
             echo "✅ no tailwind. faith in humanity restored."
+            echo "(mentionin' it in a list doesn't count. usin' it does.)"
           fi
 
       - name: check if anyone added node_modules
