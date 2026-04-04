@@ -83,13 +83,8 @@
         <small>wanna see the <a href="https://github.com/izam-mohammed/izam-mohammed.github.io">source code</a>?</small>
     </p>
 
+    <script src="/assets/js/common.js"></script>
     <script>
-        // just open all external links in new tab :)
-        document.querySelectorAll('a[href^="http"]').forEach(function (link) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
-        });
-
         // attempt hidin from spambots :)
         document.getElementById("iemail").href =
             "mailto:" +
