@@ -78,6 +78,11 @@
     </p>
     <br>
     <p>
+        <label><input type="checkbox" id="notrobot" style="width:1.2em;height:1.2em;vertical-align:middle" onclick="this.disabled=true;var s=document.getElementById('robotspin');s.hidden=false;var m=document.getElementById('robotmsg');var words=['checkin\'...','hmm...','analyzin\' your soul...'];var i=0;s.textContent=' '+words[0];var t=setInterval(function(){i++;if(i<words.length){s.textContent=' '+words[i]}else{clearInterval(t);s.hidden=true;m.hidden=false}},700)"> i am not a robot</label>
+        <span id="robotspin" hidden style="color:#b8860b"></span>
+        <b id="robotmsg" hidden style="color: green"> - i don't care whether you're a cat, a robot, or a human. welcome anyway.</b>
+    </p>
+    <p>
         <small>it's not that my webdesign skill sucks, it's just inspired by
             <a href="https://motherfuckingwebsite.com/">this absolute legend</a>
             :)</small>
