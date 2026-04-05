@@ -63,10 +63,11 @@ document.getElementById("spylink").addEventListener("click", function (e) {
         "- touchscreen: " + touch,
         "- online: " + online,
         "- battery: <span id='batteryinfo'>" + battery + "</span>",
-        "- ip address: <span id='ipinfo'>checkin'...</span>",
+        "- ipv4: <span id='ip4info'>checkin'...</span>",
+        "- ipv6: <span id='ip6info'>checkin'...</span>",
         "- location: <span id='locinfo'>checkin'...</span>",
         "",
-        "and no, i don't track you. no cookies, no analytics, no pixels. this site is cleaner than your browser history.",
+        "and no, am not storin' any of this anywhere. no cookies, no analytics, no pixels, no database. this is just a static html site - check the source code if you don't believe me.",
         "",
         "<a href='#' id='moredatabtn' style='color:#555'>wanna see what else i can find? (requires your permission)</a>",
         "<div id='moredata' hidden></div>"
@@ -90,14 +91,31 @@ document.getElementById("spylink").addEventListener("click", function (e) {
     // location + ip via ip api (skip on file:// to avoid CORS)
     if (location.protocol === "file:") {
         document.getElementById("locinfo").textContent = "can't fetch locally. deploy me first.";
-        document.getElementById("ipinfo").textContent = "can't fetch locally. deploy me first.";
+        document.getElementById("ip4info").textContent = "can't fetch locally. deploy me first.";
+        document.getElementById("ip6info").textContent = "can't fetch locally. deploy me first.";
     } else {
+        // get ipv4
+        fetch("https://api.ipify.org?format=json").then(function (r) { return r.json(); }).then(function (d) {
+            document.getElementById("ip4info").textContent = d.ip + " (every website sees this)";
+        }).catch(function () {
+            document.getElementById("ip4info").textContent = "couldn't fetch it.";
+        });
+
+        // get ipv6
+        fetch("https://api64.ipify.org?format=json").then(function (r) { return r.json(); }).then(function (d) {
+            var ip = d.ip;
+            if (ip.indexOf(":") > -1) {
+                document.getElementById("ip6info").textContent = ip + " (the long scary one)";
+            } else {
+                document.getElementById("ip6info").textContent = "not available (your network doesn't support ipv6)";
+            }
+        }).catch(function () {
+            document.getElementById("ip6info").textContent = "couldn't fetch it.";
+        });
+
+        // location
         fetch("https://ipapi.co/json/").then(function (r) { return r.json(); }).then(function (d) {
             var el = document.getElementById("locinfo");
-            var ipEl = document.getElementById("ipinfo");
-            if (d.ip) {
-                ipEl.textContent = d.ip + " (yes, that's your public ip. every website sees this.)";
-            }
             if (d.city && d.country_name) {
                 el.textContent = d.city + ", " + d.region + ", " + d.country_name + " (yeah, your ip told me)";
             } else {
@@ -105,7 +123,6 @@ document.getElementById("spylink").addEventListener("click", function (e) {
             }
         }).catch(function () {
             document.getElementById("locinfo").textContent = "couldn't figure it out yet.";
-            document.getElementById("ipinfo").textContent = "couldn't figure it out yet.";
         });
     }
 
