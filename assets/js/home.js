@@ -42,11 +42,16 @@ document.getElementById("spylink").addEventListener("click", function (e) {
 
     // incognito - browsers patched all detection tricks. respect.
 
+    // plugins/extensions count
+    var plugins = navigator.plugins ? navigator.plugins.length : 0;
+    var pluginMsg = plugins + (plugins === 0 ? " (either you're clean or your browser is hidin' 'em)" : plugins > 10 ? " (hoarder alert)" : "");
+
     var lines = [
         "relax, am not stealin' anythin'. this is all public info your browser gives to every website you visit. scary right?",
         "",
         "- browser: " + browser,
         "- incognito: browsers got smart and won't let me check anymore. you win this round.",
+        "- plugins/extensions: " + pluginMsg,
         "- screen: " + res,
         "- browser window: " + cw,
         "- language: " + lang,
@@ -58,9 +63,13 @@ document.getElementById("spylink").addEventListener("click", function (e) {
         "- touchscreen: " + touch,
         "- online: " + online,
         "- battery: <span id='batteryinfo'>" + battery + "</span>",
+        "- ip address: <span id='ipinfo'>checkin'...</span>",
         "- location: <span id='locinfo'>checkin'...</span>",
         "",
-        "and no, i don't track you. no cookies, no analytics, no pixels. this site is cleaner than your browser history."
+        "and no, i don't track you. no cookies, no analytics, no pixels. this site is cleaner than your browser history.",
+        "",
+        "<a href='#' id='moredatabtn' style='color:#555'>wanna see what else i can find? (requires your permission)</a>",
+        "<div id='moredata' hidden></div>"
     ];
 
     box.innerHTML = lines.map(function (l) { return l === "" ? "<br>" : l; }).join("<br>");
@@ -78,15 +87,141 @@ document.getElementById("spylink").addEventListener("click", function (e) {
         });
     }
 
-    // location via ip api
-    fetch("https://ipapi.co/json/").then(function (r) { return r.json(); }).then(function (d) {
-        var el = document.getElementById("locinfo");
-        if (d.city && d.country_name) {
-            el.textContent = d.city + ", " + d.region + ", " + d.country_name + " (yeah, your ip told me)";
-        } else {
-            el.textContent = "somewhere on earth. probably.";
+    // location + ip via ip api (skip on file:// to avoid CORS)
+    if (location.protocol === "file:") {
+        document.getElementById("locinfo").textContent = "can't fetch locally. deploy me first.";
+        document.getElementById("ipinfo").textContent = "can't fetch locally. deploy me first.";
+    } else {
+        fetch("https://ipapi.co/json/").then(function (r) { return r.json(); }).then(function (d) {
+            var el = document.getElementById("locinfo");
+            var ipEl = document.getElementById("ipinfo");
+            if (d.ip) {
+                ipEl.textContent = d.ip + " (yes, that's your public ip. every website sees this.)";
+            }
+            if (d.city && d.country_name) {
+                el.textContent = d.city + ", " + d.region + ", " + d.country_name + " (yeah, your ip told me)";
+            } else {
+                el.textContent = "somewhere on earth. probably.";
+            }
+        }).catch(function () {
+            document.getElementById("locinfo").textContent = "couldn't figure it out yet.";
+            document.getElementById("ipinfo").textContent = "couldn't figure it out yet.";
+        });
+    }
+
+    // more data button
+    document.getElementById("moredatabtn").addEventListener("click", function (e) {
+        e.preventDefault();
+        var btn = this;
+        btn.textContent = "askin' your browser nicely...";
+        var moreBox = document.getElementById("moredata");
+        var results = [];
+
+        // gpu info via webgl
+        try {
+            var canvas = document.createElement("canvas");
+            var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+            if (gl) {
+                var ext = gl.getExtension("WEBGL_debug_renderer_info");
+                if (ext) {
+                    results.push("- gpu: " + gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) + " (yes, i can see your graphics card)");
+                }
+            }
+        } catch (err) { }
+
+        // screen details
+        results.push("- color depth: " + screen.colorDepth + " bit");
+        results.push("- pixel ratio: " + window.devicePixelRatio + (window.devicePixelRatio >= 2 ? " (retina display, fancy)" : " (standard display)"));
+        results.push("- max touch points: " + navigator.maxTouchPoints);
+
+        // all languages
+        if (navigator.languages) {
+            results.push("- all languages: " + navigator.languages.join(", ") + " (polyglot or just never cleaned browser settings?)");
         }
-    }).catch(function () {
-        document.getElementById("locinfo").textContent = "couldn't figure it out yet.";
+
+        // cookies enabled
+        results.push("- cookies enabled: " + (navigator.cookieEnabled ? "yes" : "no (respect the paranoia)"));
+
+        // pdf viewer
+        if (navigator.pdfViewerEnabled !== undefined) {
+            results.push("- pdf viewer: " + (navigator.pdfViewerEnabled ? "yes" : "no"));
+        }
+
+        // webdriver (bot detection)
+        if (navigator.webdriver) {
+            results.push("- webdriver: DETECTED. are you a bot? a scraper? selenium? i have questions.");
+        }
+
+        moreBox.innerHTML = "<br><b>alright you asked for it. here's the deep dive:</b><br><br>" +
+            results.join("<br>") +
+            "<br><span id='gpsloc'>- gps location: requestin'...</span>" +
+            "<br><span id='weatherloc'></span>" +
+            "<br><span id='motionloc'></span>" +
+            "<br><br><i>still think \"i have nothin' to hide\" after seein' all this?</i>";
+        moreBox.hidden = false;
+        btn.textContent = "you asked for it.";
+
+        // ask for REAL gps location
+        if (navigator.geolocation) {
+            var gpsEl = document.getElementById("gpsloc");
+            navigator.geolocation.getCurrentPosition(function (pos) {
+                var lat = pos.coords.latitude.toFixed(6);
+                var lon = pos.coords.longitude.toFixed(6);
+                var acc = Math.round(pos.coords.accuracy);
+                var alt = pos.coords.altitude ? pos.coords.altitude.toFixed(1) + "m above sea level" : "unknown";
+                var speed = pos.coords.speed ? (pos.coords.speed * 3.6).toFixed(1) + " km/h (are you movin' right now?)" : "stationary (or your gps can't tell)";
+                gpsEl.innerHTML = "- gps location: " + lat + ", " + lon + " (accurate to ~" + acc + "m)" +
+                    "<br>- altitude: " + alt +
+                    "<br>- speed: " + speed +
+                    "<br>- <a href='https://www.google.com/maps?q=" + lat + "," + lon + "' target='_blank' rel='noopener noreferrer' style='color:#555'>open in google maps</a> (yeah, that's you right there)";
+
+                // weather from open-meteo (free, no api key)
+                var wEl = document.getElementById("weatherloc");
+                wEl.textContent = "- weather: checkin'...";
+                fetch("https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon + "&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&timezone=auto")
+                    .then(function (r) { return r.json(); })
+                    .then(function (w) {
+                        var c = w.current;
+                        var temp = c.temperature_2m;
+                        var humidity = c.relative_humidity_2m;
+                        var wind = c.wind_speed_10m;
+                        var codes = {0:"clear sky",1:"mainly clear",2:"partly cloudy",3:"overcast",45:"foggy",48:"fog",51:"light drizzle",53:"drizzle",55:"dense drizzle",61:"slight rain",63:"moderate rain",65:"heavy rain",71:"slight snow",73:"moderate snow",75:"heavy snow",80:"slight showers",81:"moderate showers",82:"violent showers",95:"thunderstorm",96:"thunderstorm w/ hail",99:"thunderstorm w/ heavy hail"};
+                        var desc = codes[c.weather_code] || "somethin' weather-ish";
+                        var comment = "";
+                        if (temp > 35) comment = " - go drink water right now.";
+                        else if (temp > 28) comment = " - nice and toasty.";
+                        else if (temp > 20) comment = " - perfect weather. why are you on a website?";
+                        else if (temp > 10) comment = " - grab a hoodie.";
+                        else comment = " - it's freezin'. stay inside and browse my site.";
+                        wEl.textContent = "- weather: " + temp + "°C, " + desc + ", humidity " + humidity + "%, wind " + wind + " km/h" + comment;
+                    })
+                    .catch(function () {
+                        wEl.textContent = "- weather: couldn't fetch it. the weather gods are uncooperative.";
+                    });
+            }, function (err) {
+                if (err.code === 1) gpsEl.textContent = "- gps location: denied. smart move honestly.";
+                else if (err.code === 2) gpsEl.textContent = "- gps location: couldn't get it. your device is bein' shy.";
+                else gpsEl.textContent = "- gps location: timed out. maybe you're in a bunker?";
+            }, { enableHighAccuracy: true, timeout: 15000 });
+        } else {
+            document.getElementById("gpsloc").textContent = "- gps location: your browser doesn't support this. ancient device?";
+        }
+
+        // device motion/orientation (mobile)
+        var motionEl = document.getElementById("motionloc");
+        if (window.DeviceOrientationEvent) {
+            var gotOrientation = false;
+            window.addEventListener("deviceorientation", function handler(ev) {
+                if (gotOrientation) return;
+                if (ev.alpha !== null) {
+                    gotOrientation = true;
+                    motionEl.textContent = "- device tilt: alpha=" + Math.round(ev.alpha) + " beta=" + Math.round(ev.beta) + " gamma=" + Math.round(ev.gamma) + " (i can tell how you're holdin' your device rn)";
+                    window.removeEventListener("deviceorientation", handler);
+                }
+            });
+            setTimeout(function () {
+                if (!gotOrientation) motionEl.textContent = "";
+            }, 3000);
+        }
     });
 });

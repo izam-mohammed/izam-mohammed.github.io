@@ -1,5 +1,5 @@
 // clean url - strip index.html from url bar
-if (location.pathname.endsWith('/index.html')) {
+if (location.protocol !== 'file:' && location.pathname.endsWith('/index.html')) {
     history.replaceState(null, '', location.pathname.replace('/index.html', '/'));
 }
 
