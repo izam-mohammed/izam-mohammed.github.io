@@ -35,9 +35,27 @@ don't you dare suggest settin' up a dev server or hot reloadin'. we don't do tha
 - over-engineer things for "better organization"
 - add comments explainin' what `<h1>` does
 
+## when addin' a new html page
+
+checklist so you don't forget somethin':
+
+1. **script tag** - use relative path to common.js based on depth:
+   - root level: `<script src="assets/js/common.js"></script>`
+   - `notes/xyz/`: `<script src="../../assets/js/common.js"></script>`
+   - `notes/xyz/abc/`: `<script src="../../../assets/js/common.js"></script>`
+2. **notes index** - if it's a new note, add a link in `notes/index.html`
+3. **file map below** - update the file map in this file
+5. **email links** - use `<a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">` for email links. common.js handles the decoding
+6. **back link** - every page should have `<p><a href="../">← back to ...</a></p>` at the top
+
 ## file map
 
 - `index.html` - main page
+- `404.html` - custom 404 page
+- `assets/js/common.js` - shared js (external links, rot13 emails, url cleanup)
+- `assets/js/home.js` - home page logic (visit counter, spy box, source code reveal)
+- `assets/js/what-am-i-doin.js` - rot13 encoded status messages by IST hour
+- `assets/js/hey-dev.js` - console easter eggs for devtools users
 - `notes/index.html` - notes listin' page
 - `notes/before-i-die/index.html` - bucket list
 - `notes/3am-shower-thoughts/index.html` - software ideas

@@ -4,6 +4,23 @@ document.getElementById("daysold").textContent = Math.floor((Date.now() - 112786
 // load time
 document.getElementById("loadtime").textContent = (performance.now() / 1000).toFixed(4);
 
+// visit counter
+(function () {
+    var count = parseInt(localStorage.getItem("_izam_visits") || "0") + 1;
+    localStorage.setItem("_izam_visits", count);
+    var msg = "";
+    if (count === 1) msg = "first time here? welcome. don't touch anythin'.";
+    else if (count === 2) msg = "you came back? didn't expect that honestly.";
+    else if (count === 3) msg = "3rd visit. at this point you're basically a regular.";
+    else if (count <= 5) msg = "you clearly have nothin' better to do.";
+    else if (count <= 10) msg = "should i charge you rent at this point?";
+    else if (count <= 25) msg = "we're in a relationship now. no take-backs.";
+    else if (count <= 50) msg = "you've been here more than my own mother.";
+    else if (count <= 100) msg = "just bookmark me and stop pretendin' you typed the url.";
+    else msg = "you need an intervention. or a hobby. or both.";
+    document.getElementById("visitcount").textContent = msg;
+})();
+
 // source code reveal
 document.getElementById("srclink").addEventListener("click", function (e) {
     e.preventDefault();
