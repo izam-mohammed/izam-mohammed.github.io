@@ -144,15 +144,27 @@ document.getElementById("spylink").addEventListener("click", function (e) {
             // vpn detection: compare browser timezone with ip timezone
             var browserTz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
             var ipTz = d.timezone || "";
-            if (browserTz && ipTz) {
+            // load IANA timezone aliases and compare
+            fetch("assets/data/tz-aliases.json").then(function (r) { return r.json(); }).then(function (tzAliases) {
+                var normBrowser = tzAliases[browserTz] || browserTz;
+                var normIp = tzAliases[ipTz] || ipTz;
+                if (normBrowser && normIp) {
+                    if (normBrowser === normIp) {
+                        vpnEl.textContent = "probably not. your timezone and ip location match.";
+                    } else {
+                        vpnEl.textContent = "likely yes. your browser says " + browserTz + " but your ip says " + ipTz + ". either vpn or you just teleported.";
+                    }
+                } else {
+                    vpnEl.textContent = "can't tell.";
+                }
+            }).catch(function () {
+                // fallback: direct comparison if json fails to load
                 if (browserTz === ipTz) {
                     vpnEl.textContent = "probably not. your timezone and ip location match.";
                 } else {
-                    vpnEl.textContent = "likely yes. your browser says " + browserTz + " but your ip says " + ipTz + ". either vpn or you just teleported.";
+                    vpnEl.textContent = "can't fully verify. browser says " + browserTz + ", ip says " + ipTz + ".";
                 }
-            } else {
-                vpnEl.textContent = "can't tell.";
-            }
+            });
         }).catch(function () {
             document.getElementById("locinfo").textContent = "couldn't figure it out yet.";
             document.getElementById("vpninfo").textContent = "can't tell without location data.";
