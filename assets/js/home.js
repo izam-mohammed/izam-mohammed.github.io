@@ -18,7 +18,8 @@ document.getElementById("loadtime").textContent = (performance.now() / 1000).toF
     else if (count <= 50) msg = "you've been here more than my own mother.";
     else if (count <= 100) msg = "just bookmark me and stop pretendin' you typed the url.";
     else msg = "you need an intervention. or a hobby. or both.";
-    document.getElementById("visitcount").textContent = msg;
+    var suffix = count === 1 ? "st" : count === 2 ? "nd" : count === 3 ? "rd" : "th";
+    document.getElementById("visitcount").textContent = msg + " you're here for the " + count + suffix + " time now :)";
 })();
 
 // source code reveal
