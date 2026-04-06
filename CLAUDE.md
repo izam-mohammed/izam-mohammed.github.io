@@ -66,6 +66,7 @@ checklist so you don't forget somethin':
 - `notes/where-i-doomscroll/index.html` - tech monitor sites
 - `notes/timewastin-with-ai/index.html` - ai chat tools
 - `notes/movies-that-hit-different/index.html` - movies & series
+- `notes/rebuilding-the-wheel/index.html` - build from scratch projects
 - `notes/things-life-taught-me/index.html` - life lessons / ideologies
 - `notes/things-people-ask-me/index.html` - faq / things people ask me
 
