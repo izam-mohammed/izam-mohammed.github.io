@@ -83,6 +83,7 @@ document.getElementById("spylink").addEventListener("click", function (e) {
         "- ipv4: <span id='ip4info'>checkin'...</span>",
         "- ipv6: <span id='ip6info'>checkin'...</span>",
         "- location: <span id='locinfo'>checkin'...</span>",
+        "- vpn: <span id='vpninfo'>checkin'...</span>",
         "",
         "and no, am not storin' any of this anywhere. no cookies, no analytics, no pixels, no database. this is just a static html site - check the source code if you don't believe me.",
         "",
@@ -130,16 +131,31 @@ document.getElementById("spylink").addEventListener("click", function (e) {
             document.getElementById("ip6info").textContent = "couldn't fetch it.";
         });
 
-        // location
+        // location + vpn detection
         fetch("https://ipapi.co/json/").then(function (r) { return r.json(); }).then(function (d) {
             var el = document.getElementById("locinfo");
+            var vpnEl = document.getElementById("vpninfo");
             if (d.city && d.country_name) {
                 el.textContent = d.city + ", " + d.region + ", " + d.country_name + " (yeah, your ip told me)";
             } else {
                 el.textContent = "somewhere on earth. probably.";
             }
+
+            // vpn detection: compare browser timezone with ip timezone
+            var browserTz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+            var ipTz = d.timezone || "";
+            if (browserTz && ipTz) {
+                if (browserTz === ipTz) {
+                    vpnEl.textContent = "probably not. your timezone and ip location match.";
+                } else {
+                    vpnEl.textContent = "likely yes. your browser says " + browserTz + " but your ip says " + ipTz + ". either vpn or you just teleported.";
+                }
+            } else {
+                vpnEl.textContent = "can't tell.";
+            }
         }).catch(function () {
             document.getElementById("locinfo").textContent = "couldn't figure it out yet.";
+            document.getElementById("vpninfo").textContent = "can't tell without location data.";
         });
     }
 
