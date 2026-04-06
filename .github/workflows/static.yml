@@ -32,13 +32,23 @@ jobs:
       - name: grab the code
         uses: actions/checkout@v4
 
+      - name: only keep the stuff that matters
+        run: |
+          mkdir -p _site
+          while IFS= read -r item; do
+            [ -z "$item" ] && continue
+            cp -r "$item" _site/
+          done < .deployinclude
+          echo "deployed files:"
+          find _site -type f | wc -l
+
       - name: pretend we have a build step
         uses: actions/configure-pages@v5
 
       - name: zip it up like it's somethin' important
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: yeet it to the internet
         id: deployment
