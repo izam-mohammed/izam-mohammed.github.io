@@ -18,7 +18,7 @@ jobs:
         run: echo "yo, another push? let's see what we're dealin' with..."
 
       - name: grab the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: check if anyone added tailwind
         run: |

@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: grab the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: only keep the stuff that matters
         run: |
@@ -43,13 +43,13 @@ jobs:
           find _site -type f | wc -l
 
       - name: pretend we have a build step
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: zip it up like it's somethin' important
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: '_site'
 
       - name: yeet it to the internet
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
