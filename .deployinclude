@@ -5,3 +5,5 @@ sitemap.xml
 assets
 notes
 projects
+.nojekyll
+_headers
