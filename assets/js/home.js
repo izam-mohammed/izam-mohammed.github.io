@@ -92,9 +92,27 @@ document.getElementById("spylink").addEventListener("click", function (e) {
         "<div id='moredata' hidden></div>"
     ];
 
-    box.innerHTML = lines.map(function (l) { return l === "" ? "<br>" : l; }).join("<br>");
+    box.innerHTML = "";
     box.hidden = false;
+    var i = 0;
+    function revealNext() {
+        if (i >= lines.length) {
+            setupMoreData();
+            return;
+        }
+        var line = lines[i];
+        if (line === "") {
+            box.innerHTML += "<br>";
+        } else {
+            box.innerHTML += line + "<br>";
+        }
+        i++;
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+        setTimeout(revealNext, 80);
+    }
+    revealNext();
 
+    function setupMoreData() {
     // battery
     if (navigator.getBattery) {
         navigator.getBattery().then(function (b) {
@@ -223,6 +241,7 @@ document.getElementById("spylink").addEventListener("click", function (e) {
             "<br><br><i>still think \"i have nothin' to hide\" after seein' all this?</i>";
         moreBox.hidden = false;
         btn.textContent = "you asked for it.";
+        window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 
         // ask for REAL gps location
         if (navigator.geolocation) {
@@ -287,4 +306,5 @@ document.getElementById("spylink").addEventListener("click", function (e) {
             }, 3000);
         }
     });
+    } // end setupMoreData
 });
