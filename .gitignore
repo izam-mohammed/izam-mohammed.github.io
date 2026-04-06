@@ -18,7 +18,6 @@ build/
 *.min.css
 
 # secrets (am not that dumb)
-.env
 *.pem
 
 # why would there be logs
