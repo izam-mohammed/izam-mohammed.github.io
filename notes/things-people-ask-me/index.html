@@ -5,9 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>things people ask me - Izam Mohammed</title>
+    <meta name="description" content="faq that nobody actually asks but izam put it here anyway." />
 </head>
 
 <body>
+    <main>
     <p><a href="../">← back to notes</a></p>
     <h1>faq that nobody asks, but am puttin' it here</h1>
     <button type="button" id="togglebtn" style="margin-bottom: 1em" onclick="var all=document.querySelectorAll('details');var allOpen=[...all].every(d=>d.open);all.forEach(d=>d.open=!allOpen);this.textContent=allOpen?'open all':'close all'">open all</button>
@@ -90,7 +92,9 @@
     <hr>
     <p><b>got a question that's not here?</b> <a href="https://forms.gle/PukvuyCD5rdcK9cr7">ask me anonymously</a> - if it's good enough i'll add it here.</p>
 
-    <script src="../../assets/js/common.js"></script>
+    </main>
+
+    <script src="../../assets/js/common.js" defer></script>
 </body>
 
 </html>

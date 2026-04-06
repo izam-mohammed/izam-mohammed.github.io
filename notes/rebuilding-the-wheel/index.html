@@ -5,15 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>rebuilding the wheel - Izam Mohammed</title>
+    <meta name="description" content="buildin' things that already exist just to understand how they work." />
 </head>
 
 <body>
+    <main>
     <p><a href="../">← back to notes</a></p>
     <h1>rebuildin' the wheel</h1>
     <p>everyone says "don't reinvent the wheel." but how do you know what a wheel even does if you never built one from scratch?
         <br>will any of these be production ready? absolutely not. will i mess up and learn? absolutely yes.</p>
     <p><small><a href="#" onclick="var e=document.getElementById('whatis');e.hidden=!e.hidden;return false">what is this?</a></small></p>
-    <p id="whatis" hidden><small style="color: #888">the idea is to build somethin' that already exists, not to replace it, but to finally understand what's goin' on under the hood.<br>you don't truly get how a database works until you've written a btree at 2am and questioned everythin'.<br>it's like cookin' instant noodles your whole life and then tryin' to make pasta from scratch. suddenly you respect the process.</small></p>
+    <p id="whatis" hidden><small style="color: #767676">the idea is to build somethin' that already exists, not to replace it, but to finally understand what's goin' on under the hood.<br>you don't truly get how a database works until you've written a btree at 2am and questioned everythin'.<br>it's like cookin' instant noodles your whole life and then tryin' to make pasta from scratch. suddenly you respect the process.</small></p>
 
     <ol>
         <li><b>oltp database</b> - postgres didn't build itself. btrees, wal logs, query parsers, buffer pools. i wanna feel that pain firsthand.</li>
@@ -58,9 +60,11 @@
     </ol>
 
     <p>if you're insane enough to build any of these, <a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">hit me up</a>.</p>
-    <p><small style="color: #888">there's a github repo that explored this space a bit, <a href="https://github.com/codecrafters-io/build-your-own-x">check it out</a>.</small></p>
+    <p><small style="color: #767676">there's a github repo that explored this space a bit, <a href="https://github.com/codecrafters-io/build-your-own-x">check it out</a>.</small></p>
 
-    <script src="../../assets/js/common.js"></script>
+    </main>
+
+    <script src="../../assets/js/common.js" defer></script>
 </body>
 
 </html>
