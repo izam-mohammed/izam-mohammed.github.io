@@ -2,6 +2,8 @@ index.html
 404.html
 robots.txt
 sitemap.xml
+llms.txt
+openapi.json
 assets
 brain-dumps
 .nojekyll

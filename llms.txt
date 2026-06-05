@@ -1,0 +1,27 @@
+# Izam Mohammed
+
+> izam mohammed - ml engineer who builds llm stuff. no fancy startup, no fundraising, just buildin' things.
+
+this is his personal site - a pile of brain dumps. plain html, no frameworks, loads instantly. below is every page with a one-line summary.
+
+## Main
+
+- [home](https://izam-mohammed.github.io/): izam mohammed - ml engineer who builds llm stuff. no fancy startup, no fundraising, just buildin' things.
+- [brain dumps](https://izam-mohammed.github.io/brain-dumps/): brain dumps, software ideas, life lessons, and other things izam convinced himself are worth puttin' on the internet.
+
+## Brain dumps
+
+- [software ideas](https://izam-mohammed.github.io/brain-dumps/3am-shower-thoughts/): software ideas izam had at 3am or in the shower. most will never see a git init.
+- [bucket list](https://izam-mohammed.github.io/brain-dumps/before-i-die/): things izam wanna do before he dies or his back gives out.
+- [blogs worth stalkin'](https://izam-mohammed.github.io/brain-dumps/blogs-worth-stalkin/): blogs izam bookmarks and never reads. a collector, not a reader.
+- [cognitive biases](https://izam-mohammed.github.io/brain-dumps/brain-not-brainin/): cognitive biases that mess with your head daily. knowin' em doesn't help but here they are.
+- [link hoardin' problem](https://izam-mohammed.github.io/brain-dumps/link-hoarding-problem/): izam's bookmarks folder looks like a hoarder's attic. here's all of em.
+- [movies that hit different](https://izam-mohammed.github.io/brain-dumps/movies-that-hit-different/): movies and series that hit different. mostly mollywood cause kerala don't mess around.
+- [projects](https://izam-mohammed.github.io/brain-dumps/projects/): things izam built that somehow work. or used to work.
+- [rebuilding the wheel](https://izam-mohammed.github.io/brain-dumps/rebuilding-the-wheel/): buildin' things that already exist just to understand how they work.
+- [things life taught me](https://izam-mohammed.github.io/brain-dumps/things-life-taught-me/): life lessons so izam doesn't forget and go back to bein' dumb.
+- [things people ask me](https://izam-mohammed.github.io/brain-dumps/things-people-ask-me/): faq that nobody actually asks but izam put it here anyway.
+- [timewastin' with ai](https://izam-mohammed.github.io/brain-dumps/timewastin-with-ai/): every ai chat izam has opened a tab for. peer review between robots.
+- [what changed](https://izam-mohammed.github.io/brain-dumps/whats-changed/): a changelog of this website straight from git history. every commit, every bad decision, timestamped.
+- [where i doomscroll](https://izam-mohammed.github.io/brain-dumps/where-i-doomscroll/): sites izam checks way too often pretendin' it's research.
+- [things to learn](https://izam-mohammed.github.io/brain-dumps/will-i-ever-learn-all-this/): every technology izam wants to learn. absurdly long list, zero chance of finishin' it.

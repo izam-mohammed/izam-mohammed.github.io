@@ -85,10 +85,12 @@ if you ever gotta add a line manually (the bot's down, or you're backfillin'), t
 - `brain-dumps/things-people-ask-me/index.html` - faq / things people ask me
 - `brain-dumps/whats-changed/index.html` - changelog pulled live from github commit history
 - `brain-dumps/projects/index.html` - things i built (moved here from top-level `projects/`)
-- `.deployinclude` - whitelist of files/dirs that actually get deployed. the deploy copies ONLY what's listed here into `_site`. **if you add a new top-level page or folder, add it here or it won't ship.**
+- `sitemap.xml`, `robots.txt`, `llms.txt`, `openapi.json` - **all auto-generated, do NOT hand-edit.** rebuilt from the deployed pages by `scripts/gen-meta.py` (the changelog bot reruns it every push). `llms.txt` is the [llmstxt.org](https://llmstxt.org) overview for ai crawlers; `openapi.json` is a tongue-in-cheek spec treatin' each page as a GET endpoint (there's no real api)
+- `.deployinclude` - whitelist of files/dirs that actually get deployed. the deploy copies ONLY what's listed here into `_site`. **if you add a new top-level page or folder, add it here or it won't ship** (the vibe-check guard will yell at you if you forget)
+- `scripts/gen-meta.py` - regenerates sitemap.xml + robots.txt + llms.txt + openapi.json from the deployed pages (reads each page's `<title>` and `<meta description>`). run `python3 scripts/gen-meta.py` to refresh locally
 - `.github/workflows/static.yml` - the deploy ("ship it before i change my mind"). runs after the changelog bot, copies `.deployinclude` stuff, pushes to github pages
-- `.github/workflows/changelog.yml` - auto-logs each push into the changelog ("write it down before i forget")
-- `.github/workflows/vibe-check.yml` - joke ci that fails if someone sneaks in tailwind or node_modules
+- `.github/workflows/changelog.yml` - auto-logs each push into the changelog + regenerates all the metadata files ("write it down before i forget")
+- `.github/workflows/vibe-check.yml` - guard ci: fails if someone sneaks in tailwind/node_modules, or adds a page that ain't in `.deployinclude`
 
 ## final words
 

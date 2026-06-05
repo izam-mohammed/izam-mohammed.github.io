@@ -1,5 +1,5 @@
-# bro i got you somethin'
-# this workflow does absolutely nothin' useful. enjoy.
+# the bouncer. keeps frameworks out and makes sure every page actually ships.
+# fails the build if someone sneaks in tailwind/node_modules or forgets .deployinclude.
 name: vibe check
 
 on:
@@ -14,9 +14,6 @@ jobs:
   check-the-vibes:
     runs-on: ubuntu-latest
     steps:
-      - name: wakin' up
-        run: echo "yo, another push? let's see what we're dealin' with..."
-
       - name: grab the code
         uses: actions/checkout@v6
 
@@ -39,22 +36,22 @@ jobs:
             echo "✅ no node_modules. this website still loads faster than your blinker fluid."
           fi
 
-      - name: count the files
+      - name: make sure every page actually ships (forgotten-page guard)
         run: |
-          count=$(find . -name "*.html" | wc -l)
-          echo "📄 total html files: $count"
-          echo "that's $count more than most developers' personal sites lol"
-
-      - name: measure the vibe
-        run: |
-          size=$(du -sh . | cut -f1)
-          echo "📦 total repo size: $size"
-          echo "still smaller than a single node_modules folder. we winnin'."
-
-      - name: final verdict
-        run: |
-          echo "========================================="
-          echo "  VIBE CHECK: PASSED ✅"
-          echo "  no frameworks. no nonsense. just vibes."
-          echo "  go touch grass now."
-          echo "========================================="
+          # every .html file's top-level path has to be whitelisted in .deployinclude,
+          # otherwise it silently 404s on the live site. catch it before it embarrasses us.
+          missing=0
+          while IFS= read -r f; do
+            f="${f#./}"
+            top="${f%%/*}"   # first path segment (or the filename itself for root files)
+            if ! grep -qxF "$top" .deployinclude; then
+              echo "::error file=$f::'$f' won't deploy — add '$top' to .deployinclude or it'll 404"
+              missing=1
+            fi
+          done < <(find . -name "*.html" -not -path "./.git/*" -not -path "./node_modules/*")
+          if [ "$missing" -eq 0 ]; then
+            echo "✅ every page is wired up to actually ship. no orphans."
+          else
+            echo "🚨 found page(s) that won't deploy. fix .deployinclude before this 404s in public."
+            exit 1
+          fi

@@ -51,14 +51,18 @@ jobs:
           mv "$FILE.tmp" "$FILE"
           echo "logged $SHORT — $MSG"
 
+      - name: regenerate the derived files (sitemap, robots, llms.txt, openapi)
+        run: python3 scripts/gen-meta.py
+
       - name: push it back if somethin' changed
         run: |
-          if git diff --quiet -- brain-dumps/whats-changed/index.html; then
+          FILES="brain-dumps/whats-changed/index.html sitemap.xml robots.txt llms.txt openapi.json"
+          if git diff --quiet -- $FILES; then
             echo "no changes, skippin' commit"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add brain-dumps/whats-changed/index.html
-          git commit -m "chore: log ${GITHUB_SHA:0:7} in the changelog [skip changelog]"
+          git add $FILES
+          git commit -m "chore: log ${GITHUB_SHA:0:7} + refresh metadata [skip changelog]"
           git push
