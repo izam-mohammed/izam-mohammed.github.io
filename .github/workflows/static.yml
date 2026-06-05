@@ -3,9 +3,11 @@
 name: ship it before i change my mind
 
 on:
-  # every push to main = instant regret
-  push:
-    branches: ["main"]
+  # wait for the changelog bot to log the push first, THEN ship.
+  # (every push to main kicks off "write it down before i forget", and we run after it finishes)
+  workflow_run:
+    workflows: ["write it down before i forget"]
+    types: [completed]
 
   # panic button
   workflow_dispatch:
@@ -31,6 +33,9 @@ jobs:
     steps:
       - name: grab the code
         uses: actions/checkout@v6
+        with:
+          # grab the current tip of main so we ship the changelog bot's commit too
+          ref: main
 
       - name: only keep the stuff that matters
         run: |

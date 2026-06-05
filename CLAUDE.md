@@ -50,7 +50,9 @@ checklist so you don't forget somethin':
 
 ## keepin' the changelog in sync
 
-`brain-dumps/whats-changed/index.html` is a static changelog scraped from git log. it does NOT auto-update. so every time you make a commit, add a matchin' `<li>` at the TOP of the list (newest first) in that file:
+`brain-dumps/whats-changed/index.html` is a static changelog of every commit. you usually DON'T need to touch it by hand anymore - the `changelog.yml` ci workflow ("write it down before i forget") auto-logs each push to `main`: it adds a matchin' `<li>` at the TOP of the list and commits it back with `[skip changelog]` (so it don't loop on itself). the deploy (`static.yml`) only runs AFTER that, so the new entry actually ships.
+
+if you ever gotta add a line manually (the bot's down, or you're backfillin'), the format is:
 
 ```html
 <li><a href="https://github.com/izam-mohammed/izam-mohammed.github.io/commit/FULL_SHA"><code>SHORT_SHA</code></a> — commit message here <small>(DD Mon YYYY)</small></li>
@@ -58,7 +60,7 @@ checklist so you don't forget somethin':
 
 - use the FULL 40-char sha in the href, the SHORT 7-char sha inside `<code>`
 - html-escape the message (apostrophes become `&#x27;` etc) so it don't break the page
-- if you're makin' the commit yourself, do this in the SAME commit so it never drifts
+- put `[skip changelog]` in a commit message if you want the bot to ignore it
 
 ## file map
 
@@ -83,6 +85,10 @@ checklist so you don't forget somethin':
 - `brain-dumps/things-people-ask-me/index.html` - faq / things people ask me
 - `brain-dumps/whats-changed/index.html` - changelog pulled live from github commit history
 - `brain-dumps/projects/index.html` - things i built (moved here from top-level `projects/`)
+- `.deployinclude` - whitelist of files/dirs that actually get deployed. the deploy copies ONLY what's listed here into `_site`. **if you add a new top-level page or folder, add it here or it won't ship.**
+- `.github/workflows/static.yml` - the deploy ("ship it before i change my mind"). runs after the changelog bot, copies `.deployinclude` stuff, pushes to github pages
+- `.github/workflows/changelog.yml` - auto-logs each push into the changelog ("write it down before i forget")
+- `.github/workflows/vibe-check.yml` - joke ci that fails if someone sneaks in tailwind or node_modules
 
 ## final words
 
