@@ -86,6 +86,7 @@
                 <li>so the agent can actually drive the whole app - click the buttons, hit the endpoints, fill the forms - on behalf of the user</li>
                 <li>flip the config to true and a chat tab shows up in your fullstack app, no extra wirin'</li>
                 <li>basically the openapi boolean vibe - one flag and it's just there</li>
+                <li>don't even gotta build a whole new framework - could just be a plugin you bolt onto an existing one (django, next, laravel, whatever) and it brings the agent along</li>
             </ul>
         </li>
         <li>pydantic but parallel - validate every field and condition at once instead of one by one
@@ -129,29 +130,35 @@
             li.appendChild(btn);
         });
 
-        // if someone opens a shared link, show only that idea (with a way back to the full list)
-        var target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
-        if (target && target.parentElement.tagName === 'OL') {
+        // the whole view is driven by the url hash - share link shows one idea, no hash shows all
+        var list = document.querySelector('main ol');
+        var back = document.createElement('p');
+        var backLink = document.createElement('a');
+        backLink.href = location.pathname;
+        backLink.textContent = 'see all the other shower thoughts →';
+        backLink.onclick = function () {
+            history.pushState('', document.title, location.pathname);
+            render();
+            return false;
+        };
+        back.appendChild(backLink);
+
+        function render() {
+            var target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
+            if (!target || target.parentElement !== list) target = null;
             ideas.forEach(function (li) {
-                if (li !== target) li.style.display = 'none';
+                var isTarget = li === target;
+                li.style.display = (!target || isTarget) ? '' : 'none';
+                li.style.background = isTarget ? 'yellow' : '';
+                var b = li.querySelector(':scope > button');
+                if (b) b.style.display = isTarget ? 'none' : '';
             });
-            target.style.background = 'yellow';
-            var targetBtn = target.querySelector(':scope > button');
-            if (targetBtn) targetBtn.style.display = 'none';
-            var back = document.createElement('p');
-            var link = document.createElement('a');
-            link.href = '#';
-            link.textContent = 'see all the other shower thoughts →';
-            link.onclick = function () {
-                ideas.forEach(function (li) { li.style.display = ''; });
-                target.style.background = '';
-                if (targetBtn) targetBtn.style.display = '';
-                back.style.display = 'none';
-                return false;
-            };
-            back.appendChild(link);
-            target.parentElement.parentElement.insertBefore(back, target.parentElement);
+            if (target) list.parentElement.insertBefore(back, list);
+            else if (back.parentElement) back.parentElement.removeChild(back);
         }
+
+        render();
+        window.addEventListener('hashchange', render);
     </script>
 </body>
 
