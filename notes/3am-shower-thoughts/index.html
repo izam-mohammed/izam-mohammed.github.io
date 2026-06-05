@@ -13,7 +13,7 @@
     <p><a href="../">← back to notes</a></p>
     <h1>dump software ideas</h1>
     <p>ideas i had at 3am or in the shower. most of 'em are never gonna see a git init. but writin' 'em down makes me feel productive without actually doin' anythin'.</p>
-    <ol>
+    <ol class="shareable">
         <li>search across llm outputs in web - probably an extension might help</li>
         <li>group buy calculator for google play - need to have a splittin' mechanism</li>
         <li>cli application for tradin' - cursor for tradin', somethin' which will help traders</li>
@@ -98,68 +98,11 @@
         </li>
     </ol>
 
-    <p>if you're actually crazy enough to build any of these, ping me. i'll jump in as a collaborator, hype man, or at the very least the guy who opens issues and never closes 'em. seriously tho, don't let these die in my shower thoughts - <a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">hit me up</a>.</p>
+    <p class="keep">if you're actually crazy enough to build any of these, ping me. i'll jump in as a collaborator, hype man, or at the very least the guy who opens issues and never closes 'em. seriously tho, don't let these die in my shower thoughts - <a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">hit me up</a>.</p>
 
     </main>
 
     <script src="../../assets/js/common.js" defer></script>
-    <script>
-        // give each idea a stable id + a copy-link button so you can share it directly
-        var ideas = document.querySelectorAll('main ol > li');
-        ideas.forEach(function (li) {
-            var text = (li.firstChild.textContent || '').trim().toLowerCase();
-            var slug = text.split(/ [-–] /)[0].replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            if (!slug) return;
-            li.id = slug;
-            var btn = document.createElement('button');
-            btn.textContent = '🔗';
-            btn.title = 'copy a link to this idea';
-            btn.style.border = 'none';
-            btn.style.background = 'none';
-            btn.style.cursor = 'pointer';
-            btn.style.padding = '0';
-            btn.onclick = function () {
-                var url = location.origin + location.pathname + '#' + slug;
-                navigator.clipboard.writeText(url).then(function () {
-                    btn.textContent = '✅';
-                    setTimeout(function () { btn.textContent = '🔗'; }, 1500);
-                });
-                return false;
-            };
-            li.appendChild(document.createTextNode(' '));
-            li.appendChild(btn);
-        });
-
-        // the whole view is driven by the url hash - share link shows one idea, no hash shows all
-        var list = document.querySelector('main ol');
-        var back = document.createElement('p');
-        var backLink = document.createElement('a');
-        backLink.href = location.pathname;
-        backLink.textContent = 'see all the other shower thoughts →';
-        backLink.onclick = function () {
-            history.pushState('', document.title, location.pathname);
-            render();
-            return false;
-        };
-        back.appendChild(backLink);
-
-        function render() {
-            var target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
-            if (!target || target.parentElement !== list) target = null;
-            ideas.forEach(function (li) {
-                var isTarget = li === target;
-                li.style.display = (!target || isTarget) ? '' : 'none';
-                li.style.background = isTarget ? 'yellow' : '';
-                var b = li.querySelector(':scope > button');
-                if (b) b.style.display = isTarget ? 'none' : '';
-            });
-            if (target) list.parentElement.insertBefore(back, list);
-            else if (back.parentElement) back.parentElement.removeChild(back);
-        }
-
-        render();
-        window.addEventListener('hashchange', render);
-    </script>
 </body>
 
 </html>
