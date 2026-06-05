@@ -82,6 +82,7 @@ checklist so you don't forget somethin':
 - `notes/things-life-taught-me/index.html` - life lessons / ideologies
 - `notes/things-people-ask-me/index.html` - faq / things people ask me
 - `notes/whats-changed/index.html` - changelog pulled live from github commit history
+- `notes/projects/index.html` - things i built (moved here from top-level `projects/`)
 
 ## final words
 
