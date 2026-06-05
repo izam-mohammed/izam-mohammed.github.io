@@ -3,10 +3,15 @@ if (location.protocol !== 'file:' && location.pathname.endsWith('/index.html')) 
     history.replaceState(null, '', location.pathname.replace('/index.html', '/'));
 }
 
-// open all external links in new tab
+// open all external links in new tab + tag 'em with a ref query so sites know who sent the traffic
 document.querySelectorAll('a[href^="http"]').forEach(function (link) {
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "noopener noreferrer");
+    var u = new URL(link.href);
+    if (u.hostname !== location.hostname && !u.searchParams.has("utm_source")) {
+        u.searchParams.set("utm_source", location.hostname);
+        link.href = u.toString();
+    }
 });
 
 // rot13 email obfuscation - add data-rot="encoded@email" to any <a> tag
@@ -33,7 +38,7 @@ document.querySelectorAll('a[data-rot]').forEach(function (link) {
     // tiny popup that hangs around a few secs, with a preview link to open in a new tab
     const toast = (msg, url) => {
         const t = document.createElement('div');
-        t.textContent = msg + ' ';
+        t.textContent = `${msg} `;
         css(t, { position: 'fixed', bottom: '1em', left: '50%', transform: 'translateX(-50%)',
             background: 'black', color: 'white', padding: '0.4em 0.8em' });
         const a = document.createElement('a');
@@ -49,7 +54,8 @@ document.querySelectorAll('a[data-rot]').forEach(function (link) {
         const lead = li.textContent.replace(/\s+/g, ' ').trim().toLowerCase().split(/ [-–] /)[0];
         let slug = lead.split(' ').slice(0, 8).join(' ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         if (!slug) return;
-        slug = seen[slug] ? `${slug}-${++seen[slug]}` : (seen[slug] = 1, slug);
+        if (seen[slug]) slug = `${slug}-${++seen[slug]}`;
+        else seen[slug] = 1;
         li.id = slug;
 
         const btn = document.createElement('button');
@@ -86,14 +92,15 @@ document.querySelectorAll('a[data-rot]').forEach(function (link) {
         back.remove();
         items.forEach((li) => { show(li, true); li.style.background = ''; show(btnOf(li), true); });
         new Set(items.map((li) => li.parentElement.parentElement))
-            .forEach((c) => [...c.children].forEach((el) => show(el, true)));
+            .forEach((c) => { [...c.children].forEach((el) => { show(el, true); }); });
         if (!target) return;
 
         // single-item view: keep the back-nav, <h1>, target's list and anythin' class="keep"
         const list = target.parentElement, container = list.parentElement;
-        [...container.children].forEach((el) => show(el,
-            el === list || el.tagName === 'H1' || el === container.firstElementChild || el.classList.contains('keep')));
-        items.forEach((li) => show(li, li === target));
+        [...container.children].forEach((el) => {
+            show(el, el === list || el.tagName === 'H1' || el === container.firstElementChild || el.classList.contains('keep'));
+        });
+        items.forEach((li) => { show(li, li === target); });
         target.style.background = 'yellow';
         show(btnOf(target), false);
         container.insertBefore(back, list);
