@@ -41,16 +41,16 @@ checklist so you don't forget somethin':
 
 1. **script tag** - use relative path to common.js based on depth:
    - root level: `<script src="assets/js/common.js"></script>`
-   - `notes/xyz/`: `<script src="../../assets/js/common.js"></script>`
-   - `notes/xyz/abc/`: `<script src="../../../assets/js/common.js"></script>`
-2. **notes index** - if it's a new note, add a link in `notes/index.html`
+   - `brain-dumps/xyz/`: `<script src="../../assets/js/common.js"></script>`
+   - `brain-dumps/xyz/abc/`: `<script src="../../../assets/js/common.js"></script>`
+2. **brain dumps index** - if it's a new note, add a link in `brain-dumps/index.html`
 3. **file map below** - update the file map in this file
 5. **email links** - use `<a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">` for email links. common.js handles the decoding
 6. **back link** - every page should have `<p><a href="../">← back to ...</a></p>` at the top
 
 ## keepin' the changelog in sync
 
-`notes/whats-changed/index.html` is a static changelog scraped from git log. it does NOT auto-update. so every time you make a commit, add a matchin' `<li>` at the TOP of the list (newest first) in that file:
+`brain-dumps/whats-changed/index.html` is a static changelog scraped from git log. it does NOT auto-update. so every time you make a commit, add a matchin' `<li>` at the TOP of the list (newest first) in that file:
 
 ```html
 <li><a href="https://github.com/izam-mohammed/izam-mohammed.github.io/commit/FULL_SHA"><code>SHORT_SHA</code></a> — commit message here <small>(DD Mon YYYY)</small></li>
@@ -68,21 +68,21 @@ checklist so you don't forget somethin':
 - `assets/js/home.js` - home page logic (visit counter, spy box, source code reveal)
 - `assets/js/what-am-i-doin.js` - rot13 encoded status messages by IST hour
 - `assets/js/hey-dev.js` - console easter eggs for devtools users
-- `notes/index.html` - notes listin' page
-- `notes/before-i-die/index.html` - bucket list
-- `notes/3am-shower-thoughts/index.html` - software ideas
-- `notes/will-i-ever-learn-all-this/index.html` - things to learn as swe
-- `notes/brain-not-brainin/index.html` - cognitive biases
-- `notes/blogs-worth-stalkin/index.html` - blogs worth readin'
-- `notes/link-hoarding-problem/index.html` - collection of links
-- `notes/where-i-doomscroll/index.html` - tech monitor sites
-- `notes/timewastin-with-ai/index.html` - ai chat tools
-- `notes/movies-that-hit-different/index.html` - movies & series
-- `notes/rebuilding-the-wheel/index.html` - build from scratch projects
-- `notes/things-life-taught-me/index.html` - life lessons / ideologies
-- `notes/things-people-ask-me/index.html` - faq / things people ask me
-- `notes/whats-changed/index.html` - changelog pulled live from github commit history
-- `notes/projects/index.html` - things i built (moved here from top-level `projects/`)
+- `brain-dumps/index.html` - brain dumps listin' page
+- `brain-dumps/before-i-die/index.html` - bucket list
+- `brain-dumps/3am-shower-thoughts/index.html` - software ideas
+- `brain-dumps/will-i-ever-learn-all-this/index.html` - things to learn as swe
+- `brain-dumps/brain-not-brainin/index.html` - cognitive biases
+- `brain-dumps/blogs-worth-stalkin/index.html` - blogs worth readin'
+- `brain-dumps/link-hoarding-problem/index.html` - collection of links
+- `brain-dumps/where-i-doomscroll/index.html` - tech monitor sites
+- `brain-dumps/timewastin-with-ai/index.html` - ai chat tools
+- `brain-dumps/movies-that-hit-different/index.html` - movies & series
+- `brain-dumps/rebuilding-the-wheel/index.html` - build from scratch projects
+- `brain-dumps/things-life-taught-me/index.html` - life lessons / ideologies
+- `brain-dumps/things-people-ask-me/index.html` - faq / things people ask me
+- `brain-dumps/whats-changed/index.html` - changelog pulled live from github commit history
+- `brain-dumps/projects/index.html` - things i built (moved here from top-level `projects/`)
 
 ## final words
 
