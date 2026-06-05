@@ -102,6 +102,57 @@
     </main>
 
     <script src="../../assets/js/common.js" defer></script>
+    <script>
+        // give each idea a stable id + a copy-link button so you can share it directly
+        var ideas = document.querySelectorAll('main ol > li');
+        ideas.forEach(function (li) {
+            var text = (li.firstChild.textContent || '').trim().toLowerCase();
+            var slug = text.split(/ [-–] /)[0].replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            if (!slug) return;
+            li.id = slug;
+            var btn = document.createElement('button');
+            btn.textContent = '🔗';
+            btn.title = 'copy a link to this idea';
+            btn.style.border = 'none';
+            btn.style.background = 'none';
+            btn.style.cursor = 'pointer';
+            btn.style.padding = '0';
+            btn.onclick = function () {
+                var url = location.origin + location.pathname + '#' + slug;
+                navigator.clipboard.writeText(url).then(function () {
+                    btn.textContent = '✅';
+                    setTimeout(function () { btn.textContent = '🔗'; }, 1500);
+                });
+                return false;
+            };
+            li.appendChild(document.createTextNode(' '));
+            li.appendChild(btn);
+        });
+
+        // if someone opens a shared link, show only that idea (with a way back to the full list)
+        var target = location.hash ? document.getElementById(location.hash.slice(1)) : null;
+        if (target && target.parentElement.tagName === 'OL') {
+            ideas.forEach(function (li) {
+                if (li !== target) li.style.display = 'none';
+            });
+            target.style.background = 'yellow';
+            var targetBtn = target.querySelector(':scope > button');
+            if (targetBtn) targetBtn.style.display = 'none';
+            var back = document.createElement('p');
+            var link = document.createElement('a');
+            link.href = '#';
+            link.textContent = 'see all the other shower thoughts →';
+            link.onclick = function () {
+                ideas.forEach(function (li) { li.style.display = ''; });
+                target.style.background = '';
+                if (targetBtn) targetBtn.style.display = '';
+                back.style.display = 'none';
+                return false;
+            };
+            back.appendChild(link);
+            target.parentElement.parentElement.insertBefore(back, target.parentElement);
+        }
+    </script>
 </body>
 
 </html>
