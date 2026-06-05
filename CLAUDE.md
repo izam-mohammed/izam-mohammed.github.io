@@ -48,6 +48,18 @@ checklist so you don't forget somethin':
 5. **email links** - use `<a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">` for email links. common.js handles the decoding
 6. **back link** - every page should have `<p><a href="../">← back to ...</a></p>` at the top
 
+## keepin' the changelog in sync
+
+`notes/whats-changed/index.html` is a static changelog scraped from git log. it does NOT auto-update. so every time you make a commit, add a matchin' `<li>` at the TOP of the list (newest first) in that file:
+
+```html
+<li><a href="https://github.com/izam-mohammed/izam-mohammed.github.io/commit/FULL_SHA"><code>SHORT_SHA</code></a> — commit message here <small>(DD Mon YYYY)</small></li>
+```
+
+- use the FULL 40-char sha in the href, the SHORT 7-char sha inside `<code>`
+- html-escape the message (apostrophes become `&#x27;` etc) so it don't break the page
+- if you're makin' the commit yourself, do this in the SAME commit so it never drifts
+
 ## file map
 
 - `index.html` - main page
@@ -69,6 +81,7 @@ checklist so you don't forget somethin':
 - `notes/rebuilding-the-wheel/index.html` - build from scratch projects
 - `notes/things-life-taught-me/index.html` - life lessons / ideologies
 - `notes/things-people-ask-me/index.html` - faq / things people ask me
+- `notes/whats-changed/index.html` - changelog pulled live from github commit history
 
 ## final words
 
