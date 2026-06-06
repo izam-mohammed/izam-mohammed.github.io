@@ -1,0 +1,13 @@
+# keep the vercel deploy lean - dev/ci stuff that's got no business bein' web-served.
+# (github pages already does this via .deployinclude; vercel needs this instead)
+.github/
+scripts/
+Makefile
+CLAUDE.md
+CONTRIBUTING.md
+README.md
+.deployinclude
+.env
+
+# _headers is a netlify/cloudflare thing - vercel uses vercel.json, so don't ship it
+_headers
