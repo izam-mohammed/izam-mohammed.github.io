@@ -1,0 +1,46 @@
+#!/bin/sh
+# pre-commit hook — keeps the derived stuff (changelog + sitemap/robots/llms/openapi)
+# fresh and bakes it INTO your commit, so no ci bot has to push it back to main
+# and force you into the pull/merge dance every single time.
+#
+# install once per clone:
+#   git config core.hooksPath .githooks
+#
+# heads up on the changelog: it logs commits that ALREADY exist (HEAD and back).
+# the commit you're makin' right this second don't have a sha yet, so it gets
+# logged on your NEXT commit. one commit of lag, zero divergence. that's the deal.
+
+ROOT=$(git rev-parse --show-toplevel) || exit 0
+cd "$ROOT" || exit 0
+
+CHANGELOG="brain-dumps/whats-changed/index.html"
+REPO_URL="https://github.com/izam-mohammed/izam-mohammed.github.io"
+
+# 1) log every committed-but-not-yet-logged commit. walk oldest -> newest and
+#    slot each one right after <ul>, so the newest always ends up on top. also
+#    self-heals: any commit that slipped through before gets caught up here.
+if [ -f "$CHANGELOG" ]; then
+  for sha in $(git log --reverse --format='%H' 2>/dev/null); do
+    msg=$(git log -1 --format='%s' "$sha")
+    case "$msg" in
+      *'[skip changelog]'*) continue ;;
+    esac
+    if grep -q "/commit/$sha\"" "$CHANGELOG"; then
+      continue
+    fi
+    short=$(printf '%s' "$sha" | cut -c1-7)
+    date=$(git log -1 --date=format:'%d %b %Y' --format='%ad' "$sha")
+    esc=$(printf '%s' "$msg" | python3 -c 'import sys, html; print(html.escape(sys.stdin.read()), end="")')
+    line="        <li><a href=\"$REPO_URL/commit/$sha\"><code>$short</code></a> — $esc <small>($date)</small></li>"
+    awk -v line="$line" '!ins && /<ul>/ {print; print line; ins=1; next} {print}' "$CHANGELOG" > "$CHANGELOG.tmp" \
+      && mv "$CHANGELOG.tmp" "$CHANGELOG"
+  done
+fi
+
+# 2) rebuild sitemap.xml / robots.txt / llms.txt / openapi.json from the pages
+python3 scripts/gen-meta.py >/dev/null
+
+# 3) stage whatever changed so it rides along inside THIS commit
+git add "$CHANGELOG" sitemap.xml robots.txt llms.txt openapi.json 2>/dev/null
+
+exit 0

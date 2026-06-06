@@ -50,7 +50,15 @@ checklist so you don't forget somethin':
 
 ## keepin' the changelog in sync
 
-`brain-dumps/whats-changed/index.html` is a static changelog of every commit. you usually DON'T need to touch it by hand anymore - the `changelog.yml` ci workflow ("write it down before i forget") auto-logs each push to `main`: it adds a matchin' `<li>` at the TOP of the list and commits it back with `[skip changelog]` (so it don't loop on itself). the deploy (`static.yml`) only runs AFTER that, so the new entry actually ships.
+`brain-dumps/whats-changed/index.html` is a static changelog of every commit. you usually DON'T need to touch it by hand anymore - the **`.githooks/pre-commit` hook** does it locally before each commit: it logs any not-yet-recorded commit (newest `<li>` at the TOP), regenerates the metadata files, and `git add`s 'em so they ride along INSIDE your commit. no ci bot pushin' back to `main`, so no more pull/merge dance.
+
+one catch: the hook logs commits that ALREADY exist (HEAD and back). the commit you're makin' right now ain't got a sha yet, so it lands in the changelog on your NEXT commit. one commit of lag, that's the trade for zero divergence. commits with `[skip changelog]` in the message are ignored.
+
+**install the hook once per clone** (it's local git config, not committed):
+
+```
+git config core.hooksPath .githooks
+```
 
 if you ever gotta add a line manually (the bot's down, or you're backfillin'), the format is:
 
@@ -85,11 +93,11 @@ if you ever gotta add a line manually (the bot's down, or you're backfillin'), t
 - `brain-dumps/things-people-ask-me/index.html` - faq / things people ask me
 - `brain-dumps/whats-changed/index.html` - changelog pulled live from github commit history
 - `brain-dumps/projects/index.html` - things i built (moved here from top-level `projects/`)
-- `sitemap.xml`, `robots.txt`, `llms.txt`, `openapi.json` - **all auto-generated, do NOT hand-edit.** rebuilt from the deployed pages by `scripts/gen-meta.py` (the changelog bot reruns it every push). `llms.txt` is the [llmstxt.org](https://llmstxt.org) overview for ai crawlers; `openapi.json` is a tongue-in-cheek spec treatin' each page as a GET endpoint (there's no real api)
+- `sitemap.xml`, `robots.txt`, `llms.txt`, `openapi.json` - **all auto-generated, do NOT hand-edit.** rebuilt from the deployed pages by `scripts/gen-meta.py` (the pre-commit hook reruns it before every commit). `llms.txt` is the [llmstxt.org](https://llmstxt.org) overview for ai crawlers; `openapi.json` is a tongue-in-cheek spec treatin' each page as a GET endpoint (there's no real api)
 - `.deployinclude` - whitelist of files/dirs that actually get deployed. the deploy copies ONLY what's listed here into `_site`. **if you add a new top-level page or folder, add it here or it won't ship** (the vibe-check guard will yell at you if you forget)
-- `scripts/gen-meta.py` - regenerates sitemap.xml + robots.txt + llms.txt + openapi.json from the deployed pages (reads each page's `<title>` and `<meta description>`). run `python3 scripts/gen-meta.py` to refresh locally
-- `.github/workflows/static.yml` - the deploy ("ship it before i change my mind"). runs after the changelog bot, copies `.deployinclude` stuff, pushes to github pages
-- `.github/workflows/changelog.yml` - auto-logs each push into the changelog + regenerates all the metadata files ("write it down before i forget")
+- `scripts/gen-meta.py` - regenerates sitemap.xml + robots.txt + llms.txt + openapi.json from the deployed pages (reads each page's `<title>` and `<meta description>`). run `python3 scripts/gen-meta.py` to refresh locally. the pre-commit hook runs it for ya
+- `.githooks/pre-commit` - local git hook: logs new commits into the changelog + reruns `gen-meta.py` + stages it all before each commit. install with `git config core.hooksPath .githooks`. this replaced the old changelog ci bot
+- `.github/workflows/static.yml` - the deploy ("ship it before i change my mind"). triggers on push to `main`, copies `.deployinclude` stuff, pushes to github pages
 - `.github/workflows/vibe-check.yml` - guard ci: fails if someone sneaks in tailwind/node_modules, or adds a page that ain't in `.deployinclude`
 
 ## final words

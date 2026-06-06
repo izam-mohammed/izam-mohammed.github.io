@@ -3,11 +3,10 @@
 name: ship it before i change my mind
 
 on:
-  # wait for the changelog bot to log the push first, THEN ship.
-  # (every push to main kicks off "write it down before i forget", and we run after it finishes)
-  workflow_run:
-    workflows: ["write it down before i forget"]
-    types: [completed]
+  # the changelog + metadata are baked in locally by the pre-commit hook now,
+  # so the push already has everything. just ship it straight away.
+  push:
+    branches: ["main"]
 
   # panic button
   workflow_dispatch:
@@ -34,7 +33,6 @@ jobs:
       - name: grab the code
         uses: actions/checkout@v6
         with:
-          # grab the current tip of main so we ship the changelog bot's commit too
           ref: main
 
       - name: only keep the stuff that matters
