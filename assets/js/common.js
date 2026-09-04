@@ -35,7 +35,7 @@ document.querySelectorAll('a[data-rot]').forEach(function (link) {
 
     const btn = document.createElement('button');
     btn.className = 'themebtn keep';
-    btn.textContent = link.disabled ? 'make it pretty' : 'make it ugly again';
+    btn.textContent = link.disabled ? 'add some css' : 'i hate css';
     btn.onclick = () => {
         try { localStorage.paper = link.disabled ? '1' : '0'; } catch (e) {}
         location.reload();  // reload so every theme-dependent bit agrees on the answer
