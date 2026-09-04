@@ -183,3 +183,9 @@ button.foldbtn {
     border-style: dashed;
 }
 button.foldbtn:hover { color: var(--link); border-color: var(--link); border-style: solid; }
+
+/* common.js hardcodes background:yellow on a deep-linked item - force dark ink on it
+   so the highlight stays readable when the page is in dark mode */
+.shareable > li[style*="yellow"],
+.shareable > li[style*="yellow"] * { color: #16161a !important; }
+.shareable > li[style*="yellow"] a { color: #1a2a9c !important; }
