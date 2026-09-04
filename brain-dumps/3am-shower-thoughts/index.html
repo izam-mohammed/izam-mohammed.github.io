@@ -34,22 +34,28 @@
         <li>shellgpt with better ui and fast</li>
         <li>a proper implementation of web search in terminal</li>
         <li>vim based browser</li>
-        <li>live experiments - have a stupid question, find a way to experiment it with docker
-            <ul>
-                <li>for a question - clearly define: question, possibilities, a docker file which can run, 5 runs with logs, verdict</li>
-                <li>templates: docker, sh file, makefile, each programmin' language, multiple language, each os, api experiments, llm experiment, mcp experiment</li>
-            </ul>
+        <li>
+            <details>
+                <summary>live experiments - have a stupid question, find a way to experiment it with docker</summary>
+                <ul>
+                    <li>for a question - clearly define: question, possibilities, a docker file which can run, 5 runs with logs, verdict</li>
+                    <li>templates: docker, sh file, makefile, each programmin' language, multiple language, each os, api experiments, llm experiment, mcp experiment</li>
+                </ul>
+            </details>
         </li>
         <li>somethin' better than pydantic - it's just a stupid if condition check</li>
         <li>a tool if you pass github url, clone it - a terminal tool maybe</li>
         <li>agentify - versionin' for all of the components in an agent</li>
         <li>build a fuckin' agent - a simple interactive page to choose the frameworks for buildin' the agent</li>
-        <li>how tech love each other - all the integration guides as a graph viz
-            <ul>
-                <li>every platform's integration pages mapped as nodes and edges</li>
-                <li>e.g. langchain → pinecone edge links straight to langchain's pinecone integration doc</li>
-                <li>finally see who's friends with who without diggin' through 12 docs sites</li>
-            </ul>
+        <li>
+            <details>
+                <summary>how tech love each other - all the integration guides as a graph viz</summary>
+                <ul>
+                    <li>every platform's integration pages mapped as nodes and edges</li>
+                    <li>e.g. langchain → pinecone edge links straight to langchain's pinecone integration doc</li>
+                    <li>finally see who's friends with who without diggin' through 12 docs sites</li>
+                </ul>
+            </details>
         </li>
         <li>website to cli tool</li>
         <li>a standard benchmarkin' platform with tools for benchmark llm, stt, tts, realtime, embeddin'</li>
@@ -63,53 +69,95 @@
         <li>a framework to connect your agent to channels</li>
         <li>vibe kanban inside vscode</li>
         <li>native voice for openclaw - talk to claude code without typin' like a caveman</li>
-        <li>what i did today - realtime data collector for your dev work
-            <ul>
-                <li>hooks into github, slack, and the rest of the dev tool circus</li>
-                <li>search, summarize, and spit out a dsr without typin' a word</li>
-                <li>integrates with meetings so hr finally stops askin' "what did you do today?"</li>
-            </ul>
+        <li>
+            <details>
+                <summary>what i did today - realtime data collector for your dev work</summary>
+                <ul>
+                    <li>hooks into github, slack, and the rest of the dev tool circus</li>
+                    <li>search, summarize, and spit out a dsr without typin' a word</li>
+                    <li>integrates with meetings so hr finally stops askin' "what did you do today?"</li>
+                </ul>
+            </details>
         </li>
-        <li>open interview notetaker - kinda open source <a href="https://fireflies.ai/">fireflies.ai</a>
-            <ul>
-                <li>a bot that joins your google meet and zoom calls</li>
-                <li>transcribes the whole thing in realtime</li>
-                <li>open source so you ain't gotta sell your soul to fathom or otter</li>
-            </ul>
+        <li>
+            <details>
+                <summary>open interview notetaker - kinda open source <a href="https://fireflies.ai/">fireflies.ai</a></summary>
+                <ul>
+                    <li>a bot that joins your google meet and zoom calls</li>
+                    <li>transcribes the whole thing in realtime</li>
+                    <li>open source so you ain't gotta sell your soul to fathom or otter</li>
+                </ul>
+            </details>
         </li>
-        <li>a framework with native platform agent - every backend/frontend/fullstack framework out there and not one ships an agent by default
-            <ul>
-                <li>platform agent = an agent that lives inside your app and actually knows your platform - so users can just chat with it to get stuff done instead of clickin' around</li>
-                <li>a buncha frameworks are slowly switchin' into this, baking the agent right into the platform instead of bolting on a chatbot later</li>
-                <li>not just backend api stuff - it's about every element you build. an api, a frontend button, a form, a toggle, anything a user touches</li>
-                <li>when you build the element you just describe what it does, and the agent learns it - "this button exports the report", "this endpoint creates an order", "this form updates the profile"</li>
-                <li>so the agent can actually drive the whole app - click the buttons, hit the endpoints, fill the forms - on behalf of the user</li>
-                <li>flip the config to true and a chat tab shows up in your fullstack app, no extra wirin'</li>
-                <li>basically the openapi boolean vibe - one flag and it's just there</li>
-                <li>don't even gotta build a whole new framework - could just be a plugin you bolt onto an existing one (django, next, laravel, whatever) and it brings the agent along</li>
-            </ul>
+        <li>
+            <details>
+                <summary>a framework with native platform agent - every backend/frontend/fullstack framework out there and not one ships an agent by default</summary>
+                <ul>
+                    <li>platform agent = an agent that lives inside your app and actually knows your platform - so users can just chat with it to get stuff done instead of clickin' around</li>
+                    <li>a buncha frameworks are slowly switchin' into this, baking the agent right into the platform instead of bolting on a chatbot later</li>
+                    <li>not just backend api stuff - it's about every element you build. an api, a frontend button, a form, a toggle, anything a user touches</li>
+                    <li>when you build the element you just describe what it does, and the agent learns it - "this button exports the report", "this endpoint creates an order", "this form updates the profile"</li>
+                    <li>so the agent can actually drive the whole app - click the buttons, hit the endpoints, fill the forms - on behalf of the user</li>
+                    <li>flip the config to true and a chat tab shows up in your fullstack app, no extra wirin'</li>
+                    <li>basically the openapi boolean vibe - one flag and it's just there</li>
+                    <li>don't even gotta build a whole new framework - could just be a plugin you bolt onto an existing one (django, next, laravel, whatever) and it brings the agent along</li>
+                </ul>
+            </details>
         </li>
-        <li>pydantic but parallel - validate every field and condition at once instead of one by one
-            <ul>
-                <li>pydantic bails on the first fail, i want the full list of what's broken</li>
-                <li>instead of "x api key missin' from env", show "x, y, z env vars missin'"</li>
-                <li>super useful for llm output validation - one round trip to fix everythin' instead of playin' whack-a-mole</li>
-            </ul>
+        <li>
+            <details>
+                <summary>pydantic but parallel - validate every field and condition at once instead of one by one</summary>
+                <ul>
+                    <li>pydantic bails on the first fail, i want the full list of what's broken</li>
+                    <li>instead of "x api key missin' from env", show "x, y, z env vars missin'"</li>
+                    <li>super useful for llm output validation - one round trip to fix everythin' instead of playin' whack-a-mole</li>
+                </ul>
+            </details>
         </li>
-        <li>hackathon farmin' with codin' agents - find every hackathon worth enterin', then let claude code actually build the thing
-            <ul>
-                <li>step one is boring: an aggregator over devpost, unstop, mlh, hackerearth - filtered by stack, prize, and how much time's left</li>
-                <li>step two is the fun part - hand the problem statement to an agent and let it run end to end while i sleep</li>
-                <li>open question whether an autonomous submission is impressive or just spam. probably depends entirely on whether it wins</li>
-            </ul>
+        <li>
+            <details>
+                <summary>hackathon farmin' with codin' agents - find every hackathon worth enterin', then let claude code actually build the thing</summary>
+                <ul>
+                    <li>step one is boring: an aggregator over devpost, unstop, mlh, hackerearth - filtered by stack, prize, and how much time's left</li>
+                    <li>step two is the fun part - hand the problem statement to an agent and let it run end to end while i sleep</li>
+                    <li>open question whether an autonomous submission is impressive or just spam. probably depends entirely on whether it wins</li>
+                </ul>
+            </details>
         </li>
-        <li>cli auth that follows you between machines - log into gh on one mac, sit down at another, already logged in
-            <ul>
-                <li>every cli hides its creds somewhere different - gh in the keychain, aws in ~/.aws, docker in config.json, npm in .npmrc. no standard, no sync, no mercy</li>
-                <li>settin' up a new laptop means re-authin' eight tools through eight browser tabs, every single time</li>
-                <li>basically 1password for the tools that never got the memo about oauth</li>
-                <li>whole thing lives or dies on the encryption tho. sync the tokens badly and you haven't built a product, you've built a very convenient breach</li>
-            </ul>
+        <li>
+            <details>
+                <summary>cli auth that follows you between machines - log into gh on one mac, sit down at another, already logged in</summary>
+                <ul>
+                    <li>every cli hides its creds somewhere different - gh in the keychain, aws in ~/.aws, docker in config.json, npm in .npmrc. no standard, no sync, no mercy</li>
+                    <li>settin' up a new laptop means re-authin' eight tools through eight browser tabs, every single time</li>
+                    <li>basically 1password for the tools that never got the memo about oauth</li>
+                    <li>whole thing lives or dies on the encryption tho. sync the tokens badly and you haven't built a product, you've built a very convenient breach</li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary>vibe github - vibe kanban but the board is just github, and the tickets run themselves</summary>
+                <ul>
+                    <li>github projects is already a kanban board, so quit buildin' another one. just read that one</li>
+                    <li>anythin' that shows up - a fresh issue, a pr comment sayin' "can you rename this" - gets picked up and actually finished</li>
+                    <li>the session runs in github actions, so nothin' lives on my laptop. i can shut the lid and the work keeps happenin'</li>
+                    <li>sessions are pullable tho - if the agent goes off the rails you yank it down and finish it local like a normal person</li>
+                    <li>end goal is openin' github monday mornin' and half the column already moved to done without me touchin' a key</li>
+                </ul>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary>os wide mcp - let the agent see my live chats and every terminal that's actually runnin'</summary>
+                <ul>
+                    <li>every mcp out there reads files and hits apis. not one of 'em can see the log scrollin' in tmux pane 3 right this second</li>
+                    <li>read the live terminals - tmux panes, iterm tabs, the vscode one i forgot i opened - so "why did it crash" don't need me copy pastin' a stack trace like it's 2011</li>
+                    <li>same deal for chats. slack, discord, whatsapp, imessage ~ the context is always sittin' in a dm and never in the repo</li>
+                    <li>the machine already knows what i'm doin'. the agent is the only one in the room that don't</li>
+                    <li>privacy wise this is a keylogger with good branding, so it stays local or it don't get built</li>
+                </ul>
+            </details>
         </li>
     </ol>
 
