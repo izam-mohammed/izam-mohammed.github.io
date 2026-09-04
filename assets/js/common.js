@@ -44,6 +44,46 @@ document.querySelectorAll('a[data-rot]').forEach(function (link) {
     main.append(btn);
 })();
 
+// long lists get folded down to 10 - opt out with class="nofold" on the <ul>/<ol>.
+// hides the tail behind a button so a 141-item list ain't the first thing you scroll past.
+// part of the theme: the old ugly ui gets the whole list, all 141 of 'em, as god intended.
+(() => {
+    const paper = document.getElementById('paper');
+    if (!paper || paper.disabled) return;
+
+    const LIMIT = 10;
+    const lists = [...document.querySelectorAll('main ul, main ol')]
+        .filter((l) => !l.classList.contains('nofold') && !l.parentElement.closest('li, details'));
+
+    const folds = [];
+    lists.forEach((list) => {
+        const tail = [...list.children].filter((el) => el.tagName === 'LI').slice(LIMIT);
+        if (!tail.length) return;
+
+        const btn = document.createElement('button');
+        btn.className = 'foldbtn';
+        let open = false;
+        const paint = () => {
+            tail.forEach((li) => li.classList.toggle('folded', !open));
+            btn.textContent = open ? "alright, hide that bullshit" : `see ${tail.length} more of this bullshit`;
+            btn.setAttribute('aria-expanded', String(open));
+        };
+        btn.onclick = () => { open = !open; paint(); return false; };
+        paint();
+        list.after(btn);
+
+        folds.push({ list, tail, unfold: () => { if (!open) { open = true; paint(); } } });
+    });
+
+    // a deep link into a folded tail has to open the fold, or the item stays invisible
+    const openForHash = () => {
+        const t = location.hash && document.getElementById(location.hash.slice(1));
+        if (t) folds.forEach((f) => { if (f.tail.includes(t) || f.list.contains(t)) f.unfold(); });
+    };
+    setTimeout(openForHash);  // the shareable block below assigns the ids we look up
+    addEventListener('hashchange', openForHash);
+})();
+
 // shareable list items - opt in with class="shareable" on a <ol>/<ul>. each <li> gets a
 // 🔗 to copy a deep link; openin' it shows just that item (yellow) plus a "see all" way out.
 // mark anythin' class="keep" to stay visible in single-item view. all driven by the url hash.

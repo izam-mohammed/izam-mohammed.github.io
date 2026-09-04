@@ -172,3 +172,14 @@ button:hover { border-color: var(--link); color: var(--link); }
 @media (prefers-color-scheme: dark) { [style*="color: green"] { color: #7fc79a !important; } }
 /* the toggle common.js drops at the bottom of every page */
 button.themebtn { display: block; margin: 3rem 0 0 0; font-size: 0.8rem; color: var(--faded); }
+
+/* long lists folded down to 10 - class beats the inline display the shareable code sets */
+.folded { display: none !important; }
+button.foldbtn {
+    display: block;
+    margin: 0.75rem 0 1.75rem 0;
+    font-size: 0.8rem;
+    color: var(--faded);
+    border-style: dashed;
+}
+button.foldbtn:hover { color: var(--link); border-color: var(--link); border-style: solid; }
