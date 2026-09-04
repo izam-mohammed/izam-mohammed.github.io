@@ -24,6 +24,26 @@ document.querySelectorAll('a[data-rot]').forEach(function (link) {
     });
 });
 
+// paper theme toggle - the theme ships <link disabled>, so the default is still the
+// ugly one. this flips it and remembers; each page's <head> turns it back on before
+// paint so you never see the unstyled version flash. class="keep" so the shareable
+// single-item view don't hide the way out.
+(() => {
+    const link = document.getElementById('paper');
+    const main = document.querySelector('main');
+    if (!link || !main) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'themebtn keep';
+    btn.textContent = link.disabled ? 'make it pretty' : 'make it ugly again';
+    btn.onclick = () => {
+        try { localStorage.paper = link.disabled ? '1' : '0'; } catch (e) {}
+        location.reload();  // reload so every theme-dependent bit agrees on the answer
+        return false;
+    };
+    main.append(btn);
+})();
+
 // shareable list items - opt in with class="shareable" on a <ol>/<ul>. each <li> gets a
 // 🔗 to copy a deep link; openin' it shows just that item (yellow) plus a "see all" way out.
 // mark anythin' class="keep" to stay visible in single-item view. all driven by the url hash.
