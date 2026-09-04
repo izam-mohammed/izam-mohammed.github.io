@@ -1,0 +1,191 @@
+/* paper theme. serif, one column, light + dark. */
+
+:root {
+    --paper: #fdfdfc;
+    --ink: #16161a;
+    --faded: #86867e;
+    --rule: #e2e1dc;
+    --link: #2b3fbf;
+    --mark: #f3e6a8;
+    --sunk: #f4f3ef;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --paper: #14140f;
+        --ink: #e8e6df;
+        --faded: #7b7a72;
+        --rule: #2a2a24;
+        --link: #9fb0ff;
+        --mark: #4a4113;
+        --sunk: #1c1c16;
+    }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", Charter, "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+/* the page column */
+main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 6rem 1.25rem;
+}
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-style: dotted; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+/* back link - always the first <p> with a relative href */
+main > p:first-child > a[href^=".."],
+main > p:first-child > a[href="/"] {
+    display: inline-block;
+    font-size: 0.82rem;
+    color: var(--faded);
+    text-decoration: none;
+    margin-bottom: 2rem;
+}
+main > p:first-child > a[href^=".."]:hover,
+main > p:first-child > a[href="/"]:hover { color: var(--link); text-decoration: underline; }
+
+h1 {
+    font-size: clamp(2.2rem, 8vw, 3.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 2.5rem 0 0.75rem 0;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+}
+h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem 0; }
+
+/* the intro paragraph right after the h1 */
+main > h1 + p { color: var(--faded); font-size: 1rem; max-width: 34rem; margin: 0 0 2rem 0; }
+
+p { margin: 0 0 1rem 0; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+small { color: var(--faded); }
+b, strong { font-weight: 600; }
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82em;
+    background: var(--sunk);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+}
+
+ul, ol { padding-left: 1.4rem; margin: 0 0 1.25rem 0; }
+li { margin-bottom: 0.35rem; }
+li::marker { color: var(--faded); }
+
+/* shareable lists get the ruled-row treatment */
+ol.shareable, ul.shareable { list-style: none; counter-reset: row; margin: 0 0 2rem 0; padding: 0; }
+ol.shareable > li, ul.shareable > li {
+    position: relative;
+    margin: 0;
+    padding: 0.55rem 2rem 0.55rem 3.25rem;
+    border-bottom: 1px solid var(--rule);
+}
+ol.shareable > li::before {
+    counter-increment: row;
+    content: counter(row);
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 2.25rem;
+    text-align: right;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+    color: var(--faded);
+}
+ul.shareable > li::before {
+    content: "·";
+    position: absolute;
+    left: 2rem;
+    top: 0.5rem;
+    color: var(--faded);
+}
+ol.shareable > li:hover, ul.shareable > li:hover { background: color-mix(in srgb, var(--ink) 3%, transparent); }
+ol.shareable > li:target, ul.shareable > li:target { background: var(--mark); }
+
+/* the 🔗 button common.js injects - pinned right so it never wraps the text */
+.shareable > li > button {
+    position: absolute;
+    right: 0.15rem;
+    top: 0.45rem;
+    color: var(--faded);
+    font-size: 0.85em;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.12s;
+}
+.shareable > li:hover > button, .shareable > li > button:focus-visible { opacity: 1; }
+@media (hover: none) { .shareable > li > button { opacity: 0.5; } }
+
+/* expandable items */
+details { margin-bottom: 0.5rem; }
+details > summary { cursor: pointer; list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::after {
+    content: " +";
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--faded);
+}
+details[open] > summary::after { content: " \2212"; }
+details > ul, details > ol { margin: 0.5rem 0 0.5rem 0; padding-left: 1.1rem; color: var(--faded); font-size: 0.95rem; }
+details > ul > li { margin-bottom: 0.2rem; }
+
+button {
+    font: inherit;
+    font-size: 0.85rem;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 0.25rem 0.7rem;
+    cursor: pointer;
+}
+button:hover { border-color: var(--link); color: var(--link); }
+.shareable > li > button { border: 0; padding: 0; }
+
+/* the pages hardcode #767676 / #f9f9f9 / #ccc inline, which blow up in dark mode */
+[style*="#767676"] { color: var(--faded) !important; }
+[style*="#f9f9f9"] { background: var(--sunk) !important; border-color: var(--rule) !important; }
+[style*="color: green"] { color: #3f8f5f !important; }
+@media (prefers-color-scheme: dark) { [style*="color: green"] { color: #7fc79a !important; } }
+/* the toggle common.js drops at the bottom of every page */
+button.themebtn { display: block; margin: 3rem 0 0 0; font-size: 0.8rem; color: var(--faded); }
+
+/* long lists folded down to 10 - class beats the inline display the shareable code sets */
+.folded { display: none !important; }
+button.foldbtn {
+    display: block;
+    margin: 0.75rem 0 1.75rem 0;
+    font-size: 0.8rem;
+    color: var(--faded);
+    border-style: dashed;
+}
+button.foldbtn:hover { color: var(--link); border-color: var(--link); border-style: solid; }
+
+/* common.js hardcodes background:yellow on a deep-linked item - force dark ink on it
+   so the highlight stays readable when the page is in dark mode */
+.shareable > li[style*="yellow"],
+.shareable > li[style*="yellow"] * { color: #16161a !important; }
+.shareable > li[style*="yellow"] a { color: #1a2a9c !important; }
