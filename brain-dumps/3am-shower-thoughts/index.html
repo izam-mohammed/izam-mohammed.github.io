@@ -14,7 +14,7 @@
     <main>
     <p><a href="../">← back to brain dumps</a></p>
     <h1>dump software ideas</h1>
-    <p>ideas i had at 3am or in the shower. most of 'em are never gonna see a git init. but writin' 'em down makes me feel productive without actually doin' anythin'.</p>
+    <p>ideas i had at 3am or in the shower. most of 'em are never gonna see a git init. but writin' 'em down makes me feel productive without actually doin' anythin'. [✓] = shockingly, i built it. the repos are private for now, 'cause they ain't ready to be seen by strangers.</p>
     <ol class="shareable">
         <li>search across llm outputs in web - probably an extension might help</li>
         <li>group buy calculator for google play - need to have a splittin' mechanism</li>
@@ -34,7 +34,7 @@
         <li>open notebook lm</li>
         <li>monkeytype mcp or ai in there somehow</li>
         <li>shellgpt with better ui and fast</li>
-        <li>a proper implementation of web search in terminal</li>
+        <li>a proper implementation of web search in terminal - [✓] built it as <code>search-tool</code>. my own searxng, 14 engines, one ranked list, zero api keys. google can track someone else now</li>
         <li>vim based browser</li>
         <li>
             <details>
@@ -61,14 +61,14 @@
         </li>
         <li>website to cli tool</li>
         <li>a standard benchmarkin' platform with tools for benchmark llm, stt, tts, realtime, embeddin'</li>
-        <li>bolna.ai clone - with better voice handlin' and meet functionality</li>
+        <li>bolna.ai clone - with better voice handlin' and meet functionality ~ [✓] the voice half is <code>voice-ai</code>, self-hosted on livekit, callable from a browser or a real phone. the meet half is still livin' in the shower</li>
         <li>ai assist in jupyter notebook</li>
         <li>examples finder - find example/cookbook/notebook/recipe folders in github trendin' repos</li>
         <li>a collection of pytorch models - model design, blocks, trainer, optimizer, tokenizer, dataset prep, inference</li>
         <li>esp32 mcp - connect claude to your home</li>
         <li>comparison of tables in vscode (sqlite, csv, excel, parquet) - preview changes</li>
         <li>rag engine - a python library with splittin' strategies and similarity metrics</li>
-        <li>a framework to connect your agent to channels</li>
+        <li>a framework to connect your agent to channels - [✓] that's <code>channels</code>. whatsapp, telegram, slack, twilio, email, the lot. webhooks in, replies out, my sanity sideways</li>
         <li>vibe kanban inside vscode</li>
         <li>native voice for openclaw - talk to claude code without typin' like a caveman</li>
         <li>
@@ -151,13 +151,14 @@
         </li>
         <li>
             <details>
-                <summary>os wide mcp - let the agent see my live chats and every terminal that's actually runnin'</summary>
+                <summary>os wide mcp - let the agent see my live chats and every terminal that's actually runnin' ~ [✓] half of it</summary>
                 <ul>
                     <li>every mcp out there reads files and hits apis. not one of 'em can see the log scrollin' in tmux pane 3 right this second</li>
                     <li>read the live terminals - tmux panes, iterm tabs, the vscode one i forgot i opened - so "why did it crash" don't need me copy pastin' a stack trace like it's 2011</li>
                     <li>same deal for chats. slack, discord, whatsapp, imessage ~ the context is always sittin' in a dm and never in the repo</li>
                     <li>the machine already knows what i'm doin'. the agent is the only one in the room that don't</li>
                     <li>privacy wise this is a keylogger with good branding, so it stays local or it don't get built</li>
+                    <li>[✓] the terminal half got built, twice, 'cause one wasn't enough. <code>agent-eye</code> lets an agent read and nudge the other claude and codex sessions on my mac, <code>herdr-mcp</code> lets it boss around every pane in herdr. the chats half is still a keylogger waitin' for a lawyer</li>
                 </ul>
             </details>
         </li>
