@@ -5,5 +5,5 @@ are.
 
 ### Phase 1: repository hygiene
 
-- [ ] `plans/02-repo-hygiene.md` - Dependabot for every ecosystem and a
+- [x] `plans/02-repo-hygiene.md` - Dependabot for every ecosystem and a
   proper security policy.
