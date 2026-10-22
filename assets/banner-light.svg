@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby="t d">
+  <title id="t">izam-mohammed.github.io</title>
+  <desc id="d">A very formal brand guidelines sheet for the website. The entire design system is four browser default colours, one font nobody chose, one blue link and a gray add some css button. The browser made all of it.</desc>
+
+  <rect x="1" y="1" width="1198" height="398" rx="24" fill="#ffffff" stroke="#d0d7de" stroke-width="2"/>
+
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+    <!-- header -->
+    <text x="56" y="84" font-size="15" letter-spacing="2" fill="#6b6b6b">BRAND GUIDELINES · PAGE 1 OF 1</text>
+    <text x="1144" y="84" font-size="15" text-anchor="end" fill="#6b6b6b">frameworks used: 0</text>
+    <text x="54" y="146" font-family="'Times New Roman', Times, serif" font-size="54" font-weight="700" fill="#000000">The Entire Design System.</text>
+    <text x="56" y="184" font-size="20" fill="#555555">(the browser made all of it. i just didn't stop it.)</text>
+
+    <!-- the hr. the only divider we own -->
+    <line x1="56" y1="212" x2="1144" y2="212" stroke="#c8c8c8" stroke-width="2"/>
+
+    <!-- colours -->
+    <text x="56" y="246" font-size="13" letter-spacing="2" fill="#6b6b6b">COLOURS</text>
+    <rect x="56" y="262" width="44" height="44" rx="4" fill="#0000ee"/>
+    <rect x="116" y="262" width="44" height="44" rx="4" fill="#551a8b"/>
+    <rect x="176" y="262" width="44" height="44" rx="4" fill="#000000" stroke="#b5b5b5"/>
+    <rect x="236" y="262" width="44" height="44" rx="4" fill="#ffffff" stroke="#b5b5b5"/>
+    <g font-size="13" text-anchor="middle" fill="#1f1f1f">
+      <text x="78" y="330">link</text>
+      <text x="138" y="330">visited</text>
+      <text x="198" y="330">text</text>
+      <text x="258" y="330">page</text>
+    </g>
+
+    <!-- typography -->
+    <text x="360" y="246" font-size="13" letter-spacing="2" fill="#6b6b6b">TYPOGRAPHY</text>
+    <text x="358" y="322" font-family="'Times New Roman', Times, serif" font-size="68" fill="#000000">Aa</text>
+    <text x="458" y="286" font-size="16" fill="#1f1f1f">times new roman</text>
+    <text x="458" y="310" font-size="14" fill="#555555">not a choice.</text>
+    <text x="458" y="330" font-size="14" fill="#555555">a default.</text>
+
+    <!-- components -->
+    <text x="680" y="246" font-size="13" letter-spacing="2" fill="#6b6b6b">COMPONENTS</text>
+    <text x="680" y="280" font-family="'Times New Roman', Times, serif" font-size="21" text-decoration="underline" fill="#0000ee">a link. it's blue.</text>
+    <rect x="680" y="300" width="138" height="32" rx="3" fill="#efefef" stroke="#767676"/>
+    <text x="749" y="321" font-size="15" text-anchor="middle" fill="#000000">add some css</text>
+    <text x="832" y="321" font-size="13" fill="#555555">(please don't)</text>
+
+    <!-- spacing -->
+    <text x="980" y="246" font-size="13" letter-spacing="2" fill="#6b6b6b">SPACING</text>
+    <text x="980" y="286" font-size="18" fill="#1f1f1f">8px of margin</text>
+    <text x="980" y="310" font-size="14" fill="#555555">the body's default.</text>
+    <text x="980" y="330" font-size="14" fill="#555555">never touched it.</text>
+  </g>
+</svg>
