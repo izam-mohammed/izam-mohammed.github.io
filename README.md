@@ -1,4 +1,10 @@
-# izam-mohammed.github.io
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
+    <img src="assets/banner-light.svg" alt="a very formal brand guidelines sheet for this site. the entire design system is four browser default colours, one font nobody chose, a blue link and a gray add some css button. the browser made all of it" width="100%">
+  </picture>
+</p>
 
 my personal website. nothin' fancy.
 
