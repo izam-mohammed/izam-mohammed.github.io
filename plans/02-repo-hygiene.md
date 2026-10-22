@@ -95,7 +95,7 @@ asks for update PRs and says where to report a vulnerability.
 
 ### Phase 3: security policy
 
-- [ ] `.github/SECURITY.md` keeps its voice and says only the latest
+- [x] `.github/SECURITY.md` keeps its voice and says only the latest
   commit on `main` is live, links GitHub's private vulnerability
   reporting, says what happens next, and names the scope (the pages, the
   pre-commit and deploy workflows, `scripts/gen-meta.py`).
