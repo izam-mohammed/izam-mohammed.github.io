@@ -83,14 +83,14 @@ asks for update PRs and says where to report a vulnerability.
 
 ### Phase 1: topics
 
-- [ ] The repository topics set from the README and description, recorded
+- [x] The repository topics set from the README and description, recorded
   here: `github-hosted`, `html5`, `links`, `linktree`,
   `personal-website`, `static-site`, `website`; check: `gh repo view izam-mohammed/izam-mohammed.github.io --json repositoryTopics`
   lists them.
 
 ### Phase 2: dependabot
 
-- [ ] `.github/dependabot.yml` keeps its `github-actions` entry and adds
+- [x] `.github/dependabot.yml` keeps its `github-actions` entry and adds
   `pre-commit` (`/`), weekly with a seven-day cooldown and one group; check: the file parses as YAML (checked with `yaml.safe_load`).
 
 ### Phase 3: security policy
