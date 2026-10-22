@@ -14,7 +14,7 @@
     <main>
     <p><a href="../">← back to brain dumps</a></p>
     <h1>dump software ideas</h1>
-    <p>ideas i had at 3am or in the shower. most of 'em are never gonna see a git init. but writin' 'em down makes me feel productive without actually doin' anythin'.</p>
+    <p>ideas i had at 3am or in the shower. most of 'em are never gonna see a git init. but writin' 'em down makes me feel productive without actually doin' anythin'. [✓] = shockingly, i built it. public ones get a link, private ones just get a name, 'cause they ain't ready to be seen by strangers.</p>
     <ol class="shareable">
         <li>search across llm outputs in web - probably an extension might help</li>
         <li>group buy calculator for google play - need to have a splittin' mechanism</li>
@@ -24,7 +24,7 @@
         <li>openrouter for tools - kinda <a href="https://aws.amazon.com/what-is/ipaas/">ipaas</a></li>
         <li>unnecessarily overengineered notetaker</li>
         <li>produce a random coin flipper - there is no thing as random for computers, so there will be multiple algos for no reason</li>
-        <li>exploited tutorial hell - just a bunch of high quality tutorial lists</li>
+        <li>exploited tutorial hell - just a bunch of high quality tutorial lists ~ [✓] sorta, that's <a href="https://github.com/izam-mohammed/Awesome-GenAI">Awesome-GenAI</a>. genai only, 'cause one hell at a time</li>
         <li><a href="https://nadh.in/files/indiafoss-2024-dungbeetle.pdf">abusin' technology</a> project</li>
         <li>db cleaner - auto sql with gut feelin's</li>
         <li>db backup tool - a cli tool which will ask to connect to the db with type and then ask for the output format</li>
@@ -34,7 +34,7 @@
         <li>open notebook lm</li>
         <li>monkeytype mcp or ai in there somehow</li>
         <li>shellgpt with better ui and fast</li>
-        <li>a proper implementation of web search in terminal</li>
+        <li>a proper implementation of web search in terminal - [✓] built it as <code>search-tool</code>. my own searxng, 14 engines, one ranked list, zero api keys. google can track someone else now</li>
         <li>vim based browser</li>
         <li>
             <details>
@@ -61,14 +61,14 @@
         </li>
         <li>website to cli tool</li>
         <li>a standard benchmarkin' platform with tools for benchmark llm, stt, tts, realtime, embeddin'</li>
-        <li>bolna.ai clone - with better voice handlin' and meet functionality</li>
+        <li>bolna.ai clone - with better voice handlin' and meet functionality ~ [✓] the voice half is <code>voice-ai</code>, self-hosted on livekit, callable from a browser or a real phone. the meet half is still livin' in the shower</li>
         <li>ai assist in jupyter notebook</li>
         <li>examples finder - find example/cookbook/notebook/recipe folders in github trendin' repos</li>
         <li>a collection of pytorch models - model design, blocks, trainer, optimizer, tokenizer, dataset prep, inference</li>
         <li>esp32 mcp - connect claude to your home</li>
         <li>comparison of tables in vscode (sqlite, csv, excel, parquet) - preview changes</li>
         <li>rag engine - a python library with splittin' strategies and similarity metrics</li>
-        <li>a framework to connect your agent to channels</li>
+        <li>a framework to connect your agent to channels - [✓] that's <code>channels</code>. whatsapp, telegram, slack, twilio, email, the lot. webhooks in, replies out, my sanity sideways</li>
         <li>vibe kanban inside vscode</li>
         <li>native voice for openclaw - talk to claude code without typin' like a caveman</li>
         <li>
@@ -151,16 +151,31 @@
         </li>
         <li>
             <details>
-                <summary>os wide mcp - let the agent see my live chats and every terminal that's actually runnin'</summary>
+                <summary>os wide mcp - let the agent see my live chats and every terminal that's actually runnin' ~ [✓] half of it</summary>
                 <ul>
                     <li>every mcp out there reads files and hits apis. not one of 'em can see the log scrollin' in tmux pane 3 right this second</li>
                     <li>read the live terminals - tmux panes, iterm tabs, the vscode one i forgot i opened - so "why did it crash" don't need me copy pastin' a stack trace like it's 2011</li>
                     <li>same deal for chats. slack, discord, whatsapp, imessage ~ the context is always sittin' in a dm and never in the repo</li>
                     <li>the machine already knows what i'm doin'. the agent is the only one in the room that don't</li>
                     <li>privacy wise this is a keylogger with good branding, so it stays local or it don't get built</li>
+                    <li>[✓] the terminal half got built, twice, 'cause one wasn't enough. <code>agent-eye</code> lets an agent read and nudge the other claude and codex sessions on my mac, <code>herdr-mcp</code> lets it boss around every pane in herdr. the chats half is still a keylogger waitin' for a lawyer</li>
                 </ul>
             </details>
         </li>
+        <li>claude drives my actual chrome - my profiles, my logins, and a cursor that moves like a human on mild caffeine ~ [✓] built it as <code>browser-hand</code>. the bank profile is read-only, 'cause i know myself</li>
+        <li>a companion app for my car - the venue knows its fuel level and refuses to share ~ [✓] that's <code>car-mate</code>. logs trips, remembers i parked in b2 again, does km/l so i stop doin' math on receipts</li>
+        <li>remove claude as co-author from my git history - it wrote the code, i'm takin' the credit. that's just management ~ [✓] <a href="https://github.com/izam-mohammed/claim-your-code">claim-your-code</a>. on brew and scoop, so the theft is cross platform</li>
+        <li>llm as the teacher, a tiny fast model as the student - fine-tune a decision model on your own data in one line ~ [✓] <a href="https://github.com/izam-mohammed/decisionsmith">decisionsmith</a>. on pypi and everythin', like a real adult</li>
+        <li>let gemini stare at my dataframe and tell me what's interestin' - skip the part where i stare at it myself ~ [✓] <a href="https://github.com/izam-mohammed/GemInsights">GemInsights</a>. sorry, data analysts</li>
+        <li>agents that job hunt for me - find it, research the company, tailor the resume, fill the form ~ [✓] <code>job-hunter</code>. does everythin' except actually get me hired. i still press submit, like an adult</li>
+        <li>legal advice from an llm - rag over the legal stuff so it cites instead of vibes ~ [✓] <a href="https://github.com/izam-mohammed/Legal-Advisor-LLM">Legal-Advisor-LLM</a>. not a lawyer. neither is the bot. please don't sue either of us</li>
+        <li>give the mac notch a job - babysit my ai agents from the top of the screen ~ [✓] <code>mac-notch</code>. the black rectangle finally pays rent</li>
+        <li>an expense tracker that finally shows where the salary goes - spoiler: it goes ~ [✓] <code>money-logs</code>. android, web, and a rust backend nobody asked for</li>
+        <li>a penpot mcp that don't need a browser tab babysat forever - just talk to the api ~ [✓] <a href="https://github.com/izam-mohammed/penpot-mcp">penpot-mcp</a>. the official one can keep its tab</li>
+        <li>one cli for the whole pypi ritual - uv, poetry, hatch, twine, keyring, all of it, minus the 2am regret ~ [✓] kinda, <code>pypictl</code>. <code>info</code> and <code>name</code> work. the other eleven plans are vibes</li>
+        <li>an evaluation library for llm and rag apps - is it right, is it grounded, is it rude ~ [✓] <a href="https://github.com/izam-mohammed/ragrank">ragrank</a>. was perfect when i built it. now it has issues. classic</li>
+        <li>click-ops ui for streamin' pipelines - cdc in, sql generated, sinks out ~ [✓] <code>realtime-datapipes</code>. risingwave does the work, streamlit takes the credit</li>
+        <li>scripts that click websites so i don't have to - one per website that annoyed me once too often ~ [✓] <code>scraper-buddies</code>. it's a monorepo of grudges</li>
     </ol>
 
     <p class="keep">if you're actually crazy enough to build any of these, ping me. i'll jump in as a collaborator, hype man, or at the very least the guy who opens issues and never closes 'em. seriously tho, don't let these die in my shower thoughts - <a href="#" data-rot="hyzlcdudknodq1@flzhk.bnl">hit me up</a>.</p>
