@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-    <img src="assets/banner-light.svg" alt="a very formal brand guidelines sheet for this site. the entire design system is four browser default colours, one font nobody chose, a blue link and a gray add some css button. the browser made all of it" width="100%">
+    <img src="assets/banner-light.svg" alt="a house for sale. the house is this website, a plain browser window with a roof on it and an unstyled button for a door. the sign says charming 1999-era fixer-upper, original features, no css. open house: open index.html" width="100%">
   </picture>
 </p>
 
