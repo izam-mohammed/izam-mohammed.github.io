@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-labelledby="t d">
+  <title id="t">izam-mohammed.github.io</title>
+  <desc id="d">A house for sale. The house is a plain browser window with a roof on it, showing the site in default Times New Roman with blue and purple links, and a default grey button for a door. A for sale sign on the lawn reads: charming 1999-era fixer-upper, original features, no css, no node_modules, tons of space. A sticker says as is. The rider under it says: open house, open index.html.</desc>
+
+  <defs>
+    <clipPath id="frame"><rect width="1200" height="400" rx="20"/></clipPath>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ffd866" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffd866" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <!-- sky, plus whatever the weather is doing -->
+    <rect width="1200" height="400" fill="#dcecfb"/>
+    <circle cx="470" cy="74" r="28" fill="#ffd84d"/>
+    <g fill="#ffffff" fill-opacity="0.95">
+      <path d="M290 70 a18 18 0 0 1 30 -12 a24 24 0 0 1 44 6 a16 16 0 0 1 4 30 h-74 a12 12 0 0 1 -4 -24z"/>
+      <path d="M1110 54 a14 14 0 0 1 24 -9 a19 19 0 0 1 34 5 a12 12 0 0 1 3 23 h-58 a10 10 0 0 1 -3 -19z"/>
+    </g>
+    <g fill="#e6edf3" fill-opacity="0">
+      <circle cx="675" cy="87" r="1.1"/><circle cx="820" cy="34" r="0.9"/><circle cx="160" cy="284" r="1.3"/><circle cx="204" cy="197" r="1.3"/><circle cx="130" cy="269" r="1.6"/>
+      <circle cx="451" cy="29" r="1.1"/><circle cx="188" cy="232" r="2.0"/><circle cx="868" cy="45" r="0.9"/><circle cx="504" cy="56" r="1.1"/><circle cx="1140" cy="227" r="2.0"/>
+      <circle cx="133" cy="299" r="1.3"/><circle cx="265" cy="124" r="1.1"/><circle cx="1152" cy="78" r="2.0"/><circle cx="605" cy="224" r="0.9"/><circle cx="307" cy="286" r="2.0"/>
+      <circle cx="253" cy="302" r="1.3"/><circle cx="643" cy="296" r="0.9"/><circle cx="382" cy="62" r="1.3"/><circle cx="1181" cy="106" r="2.0"/><circle cx="774" cy="59" r="1.3"/>
+      <circle cx="1133" cy="42" r="1.1"/><circle cx="1167" cy="40" r="1.3"/><circle cx="433" cy="264" r="1.1"/><circle cx="1100" cy="228" r="2.0"/><circle cx="655" cy="248" r="2.0"/>
+      <circle cx="940" cy="195" r="2.0"/><circle cx="625" cy="137" r="1.3"/><circle cx="380" cy="134" r="1.1"/><circle cx="1025" cy="185" r="2.0"/><circle cx="931" cy="157" r="1.1"/>
+      <circle cx="161" cy="70" r="1.1"/><circle cx="1060" cy="224" r="1.6"/><circle cx="349" cy="185" r="1.1"/><circle cx="323" cy="260" r="1.1"/><circle cx="1185" cy="170" r="2.0"/>
+      <circle cx="708" cy="189" r="1.6"/><circle cx="1029" cy="306" r="1.3"/><circle cx="946" cy="45" r="0.9"/><circle cx="203" cy="148" r="0.9"/><circle cx="982" cy="43" r="1.3"/>
+      <circle cx="136" cy="168" r="1.6"/><circle cx="802" cy="187" r="1.3"/><circle cx="58" cy="246" r="1.1"/><circle cx="739" cy="96" r="2.0"/><circle cx="251" cy="262" r="1.3"/>
+      <circle cx="132" cy="121" r="1.6"/><circle cx="600" cy="76" r="1.3"/><circle cx="519" cy="213" r="1.3"/><circle cx="812" cy="264" r="0.9"/><circle cx="1137" cy="152" r="1.1"/>
+      <circle cx="292" cy="230" r="0.9"/><circle cx="862" cy="193" r="1.1"/><circle cx="791" cy="128" r="1.6"/><circle cx="321" cy="52" r="1.1"/><circle cx="487" cy="129" r="1.3"/>
+      <circle cx="589" cy="12" r="1.1"/><circle cx="827" cy="214" r="1.6"/><circle cx="998" cy="215" r="2.0"/><circle cx="914" cy="93" r="2.0"/><circle cx="237" cy="184" r="0.9"/>
+      <circle cx="119" cy="62" r="1.6"/><circle cx="12" cy="300" r="1.3"/><circle cx="64" cy="46" r="0.9"/><circle cx="437" cy="202" r="0.9"/><circle cx="316" cy="139" r="1.6"/>
+      <circle cx="723" cy="318" r="1.1"/><circle cx="757" cy="252" r="1.6"/><circle cx="263" cy="69" r="1.1"/><circle cx="1011" cy="248" r="1.6"/><circle cx="650" cy="53" r="1.3"/>
+      <path d="M116 28 l2 -7 l2 7 l7 2 l-7 2 l-2 7 l-2 -7 l-7 -2z"/><path d="M400 148 l2 -7 l2 7 l7 2 l-7 2 l-2 7 l-2 -7 l-7 -2z"/><path d="M674 20 l2 -7 l2 7 l7 2 l-7 2 l-2 7 l-2 -7 l-7 -2z"/><path d="M1060 102 l2 -7 l2 7 l7 2 l-7 2 l-2 7 l-2 -7 l-7 -2z"/><path d="M1176 150 l2 -7 l2 7 l7 2 l-7 2 l-2 7 l-2 -7 l-7 -2z"/><path d="M256 266 l2 -7 l2 7 l7 2 l-7 2 l-2 7 l-2 -7 l-7 -2z"/>
+    </g>
+    <g fill="none" stroke="#57606a" stroke-width="2" stroke-linecap="round" stroke-opacity="0.95">
+      <path d="M622 74 q6 -6 12 0 q6 -6 12 0"/><path d="M656 92 q5 -5 10 0 q5 -5 10 0"/><path d="M226 40 q5 -5 10 0 q5 -5 10 0"/>
+    </g>
+    <ellipse cx="840" cy="250" rx="380" ry="170" fill="url(#glow)" fill-opacity="0"/>
+
+    <!-- the lawn -->
+    <rect y="330" width="1200" height="70" fill="#8cc66d"/>
+    <rect y="330" width="1200" height="6" fill="#74b157"/>
+
+    <!-- the house, which is a browser window with a roof on it -->
+    <rect x="980" y="58" width="34" height="60" fill="#9a4a37"/>
+    <polygon points="548,118 840,38 1132,118" fill="#b4553f" stroke="#8a3e2d" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="566" y="122" width="548" height="210" fill="#ffffff" stroke="#9aa1a9" stroke-width="2"/>
+    <rect x="566" y="122" width="548" height="30" fill="#e7e9ec" stroke="#9aa1a9" stroke-width="2"/>
+    <rect x="540" y="113" width="600" height="9" rx="2" fill="#8a3e2d"/>
+    <g fill="#9aa1a9"><circle cx="584" cy="137" r="5"/><circle cx="600" cy="137" r="5"/><circle cx="616" cy="137" r="5"/></g>
+    <rect x="640" y="128" width="400" height="18" rx="9" fill="#ffffff"/>
+    <text x="656" y="141" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#57606a">izam-mohammed.github.io</text>
+
+    <g font-family="'Times New Roman', Times, serif" fill="#000000">
+      <text x="586" y="190" font-size="30" font-weight="700">Izam Mohammed</text>
+      <text x="586" y="218" font-size="16">just another ml engineer on the internet.</text>
+      <text x="596" y="246" font-size="16">• i dump my <tspan fill="#0000ee" text-decoration="underline">brain</tspan> sometimes so i don't forget stuff.</text>
+      <text x="596" y="270" font-size="16">• <tspan fill="#551a8b" text-decoration="underline">GitHub</tspan> - mostly unfinished projects</text>
+    </g>
+    <!-- front door: one unstyled <button> -->
+    <rect x="1010" y="262" width="74" height="70" rx="3" fill="#efefef" stroke="#767676" stroke-width="1.5"/>
+    <text x="1042" y="302" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#000000">come in</text>
+    <circle cx="1075" cy="297" r="2.5" fill="#767676"/>
+    <circle cx="1099" cy="275" r="30" fill="url(#glow)" fill-opacity="0"/>
+    <rect x="1094" y="268" width="10" height="14" rx="3" fill="#ffd866" stroke="#9aa1a9" stroke-width="1.5"/>
+
+    <rect x="1014" y="332" width="66" height="8" rx="2" fill="#8b5a2b"/>
+    <g fill="#c9c3b8">
+      <ellipse cx="1050" cy="352" rx="22" ry="5"/><ellipse cx="1040" cy="368" rx="26" ry="6"/><ellipse cx="1054" cy="387" rx="30" ry="7"/>
+    </g>
+    <g fill="#f778ba">
+      <circle cx="652" cy="346" r="3"/><circle cx="676" cy="356" r="3"/><circle cx="718" cy="347" r="3"/>
+      <circle cx="930" cy="352" r="3"/><circle cx="968" cy="345" r="3"/><circle cx="244" cy="360" r="3"/><circle cx="384" cy="350" r="3"/>
+    </g>
+    <g fill="#ffffff">
+      <circle cx="664" cy="350" r="2.5"/><circle cx="700" cy="358" r="2.5"/><circle cx="948" cy="358" r="2.5"/><circle cx="220" cy="350" r="2.5"/><circle cx="406" cy="360" r="2.5"/>
+    </g>
+
+    <!-- mailbox. the address is rot13'd, like on the site -->
+    <rect x="504" y="292" width="7" height="46" fill="#8b5a2b" stroke="#6b421c" stroke-width="1"/>
+    <path d="M486 304 v-14 a12 12 0 0 1 12 -12 h22 a12 12 0 0 1 12 12 v14 z" fill="#3b5bdb" stroke="#6b421c" stroke-width="1.5"/>
+    <rect x="528" y="270" width="3" height="20" fill="#6b421c"/><rect x="531" y="270" width="12" height="8" fill="#c8102e"/>
+    <text x="508" y="300" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#ffffff">rot13</text>
+
+    <g fill="#5a9e44">
+      <circle cx="560" cy="326" r="18"/><circle cx="584" cy="320" r="22"/><circle cx="606" cy="328" r="14"/>
+      <circle cx="1112" cy="324" r="20"/><circle cx="1134" cy="328" r="15"/>
+    </g>
+
+    <!-- the sign -->
+    <rect x="142" y="84" width="12" height="270" fill="#8b5a2b" stroke="#6b421c" stroke-width="1.5"/>
+    <rect x="142" y="92" width="330" height="10" fill="#8b5a2b" stroke="#6b421c" stroke-width="1.5"/>
+    <g stroke="#6b421c" stroke-width="2"><line x1="200" y1="102" x2="200" y2="122"/><line x1="440" y1="102" x2="440" y2="122"/></g>
+    <rect x="178" y="122" width="284" height="150" rx="6" fill="#ffffff" stroke="#c9ccd1" stroke-width="2"/>
+    <path d="M178 128 a6 6 0 0 1 6 -6 h272 a6 6 0 0 1 6 6 v44 h-284z" fill="#c8102e"/>
+    <text x="320" y="160" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="32" letter-spacing="3" fill="#ffffff">FOR SALE</text>
+    <g font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" fill="#1f2328" text-anchor="middle">
+      <text x="320" y="200" font-weight="700">charming 1999-era fixer-upper</text>
+      <text x="320" y="224">original features. no css.</text>
+      <text x="320" y="248">no node_modules. tons of space.</text>
+    </g>
+    <g transform="rotate(14 450 130)">
+      <rect x="408" y="112" width="78" height="30" rx="3" fill="#ffd84d"/>
+      <text x="447" y="133" text-anchor="middle" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="15" fill="#1f2328">AS IS</text>
+    </g>
+    <g stroke="#6b421c" stroke-width="2"><line x1="214" y1="272" x2="214" y2="282"/><line x1="426" y1="272" x2="426" y2="282"/></g>
+    <rect x="190" y="282" width="260" height="34" rx="4" fill="#c8102e"/>
+    <text x="320" y="305" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15" fill="#ffffff"><tspan font-weight="800">OPEN HOUSE:</tspan> open index.html</text>
+  </g>
+</svg>
