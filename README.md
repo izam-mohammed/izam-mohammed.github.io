@@ -1,4 +1,10 @@
-# izam-mohammed.github.io
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
+    <img src="assets/banner-light.svg" alt="a house for sale. the house is this website, a plain browser window with a roof on it an unstyled button for a door and a mailbox that says rot13. the sign says charming 1999-era fixer-upper, original features, no css. open house: open index.html" width="100%">
+  </picture>
+</p>
 
 my personal website. nothin' fancy.
 
