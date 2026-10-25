@@ -78,6 +78,7 @@ if you ever gotta add a line manually (the bot's down, or you're backfillin'), t
 - `assets/js/home.js` - home page logic (visit counter, spy box, source code reveal)
 - `assets/js/what-am-i-doin.js` - rot13 encoded status messages by IST hour
 - `assets/js/hey-dev.js` - console easter eggs for devtools users
+- `assets/banner-dark.svg`, `assets/banner-light.svg` - the readme banner, one per github theme. it's an svg, not a stylesheet, so the style guide can relax
 - `brain-dumps/index.html` - brain dumps listin' page
 - `brain-dumps/before-i-die/index.html` - bucket list
 - `brain-dumps/3am-shower-thoughts/index.html` - software ideas
