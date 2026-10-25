@@ -101,6 +101,15 @@ if you ever gotta add a line manually (the bot's down, or you're backfillin'), t
 - `.github/workflows/static.yml` - the deploy ("ship it before i change my mind"). triggers on push to `main`, copies `.deployinclude` stuff, pushes to github pages
 - `.github/workflows/vibe-check.yml` - guard ci: fails if someone sneaks in tailwind/node_modules, or adds a page that ain't in `.deployinclude`
 
+## plans n' standards
+
+Standards: docs/standards.md
+
+- `PLAN.md` - what's left to build, in order. points at `plans/`
+- `plans/NN-*.md` - one plan per change. phases, checkboxes, the works
+- `docs/built/BUILT-*.md` - snapshots of what's already built. written once, never edited
+- `docs/standards.md` - what every change has to pass. yes, a static site has standards now. calm down
+
 ## final words
 
 this website loads in like 0.001 seconds. let's keep it that way. am countin' on you claude. don't let me down.
