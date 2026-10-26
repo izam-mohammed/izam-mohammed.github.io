@@ -16,7 +16,7 @@ this is his personal site - a pile of brain dumps. plain html, no frameworks, lo
 - [blogs worth stalkin'](https://izam-mohammed.github.io/brain-dumps/blogs-worth-stalkin/): blogs izam bookmarks and never reads. a collector, not a reader.
 - [cognitive biases](https://izam-mohammed.github.io/brain-dumps/brain-not-brainin/): cognitive biases that mess with your head daily. knowin' em doesn't help but here they are.
 - [link hoardin' problem](https://izam-mohammed.github.io/brain-dumps/link-hoarding-problem/): izam's bookmarks folder looks like a hoarder's attic. here's all of em.
-- [movies that hit different](https://izam-mohammed.github.io/brain-dumps/movies-that-hit-different/): movies and series that hit different. mostly mollywood cause kerala don't mess around.
+- [movies i remember watchin'](https://izam-mohammed.github.io/brain-dumps/movies-i-remember-watchin/): every movie and series i remember watchin'. mostly mollywood cause kerala don't mess around.
 - [projects](https://izam-mohammed.github.io/brain-dumps/projects/): things izam built that somehow work. or used to work.
 - [rebuilding the wheel](https://izam-mohammed.github.io/brain-dumps/rebuilding-the-wheel/): buildin' things that already exist just to understand how they work.
 - [things life taught me](https://izam-mohammed.github.io/brain-dumps/things-life-taught-me/): life lessons so izam doesn't forget and go back to bein' dumb.
