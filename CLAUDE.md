@@ -88,7 +88,7 @@ if you ever gotta add a line manually (the bot's down, or you're backfillin'), t
 - `brain-dumps/link-hoarding-problem/index.html` - collection of links
 - `brain-dumps/where-i-doomscroll/index.html` - tech monitor sites
 - `brain-dumps/timewastin-with-ai/index.html` - ai chat tools
-- `brain-dumps/movies-that-hit-different/index.html` - movies & series
+- `brain-dumps/movies-i-remember-watchin/index.html` - movies & series i remember watchin' (imdb links, no reviews)
 - `brain-dumps/rebuilding-the-wheel/index.html` - build from scratch projects
 - `brain-dumps/things-life-taught-me/index.html` - life lessons / ideologies
 - `brain-dumps/things-people-ask-me/index.html` - faq / things people ask me

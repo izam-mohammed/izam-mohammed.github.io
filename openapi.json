@@ -116,11 +116,11 @@
         }
       }
     },
-    "/brain-dumps/movies-that-hit-different/": {
+    "/brain-dumps/movies-i-remember-watchin/": {
       "get": {
-        "operationId": "get_brain-dumps_movies-that-hit-different",
-        "summary": "movies that hit different",
-        "description": "movies and series that hit different. mostly mollywood cause kerala don't mess around.",
+        "operationId": "get_brain-dumps_movies-i-remember-watchin",
+        "summary": "movies i remember watchin'",
+        "description": "every movie and series i remember watchin'. mostly mollywood cause kerala don't mess around.",
         "responses": {
           "200": {
             "description": "the page, served as html",
